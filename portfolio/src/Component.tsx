@@ -20,12 +20,9 @@ export default function SpinWheel({ items }: { items: { name: string; thumbnail?
   const handlePointerMove = (e: PointerEvent) => {
     if (!isDragging.current) return;
     
-    // Calculăm diferența de poziție verticală
     const deltaY = startY.current - e.clientY;
-    // Actualizăm rotația proporțional cu mișcarea mouse-ului
     rotation.set(startRotation.current + deltaY * 2);
     
-    // Calculăm viteza pentru inerție
     velocity.current = deltaY;
   };
 
@@ -33,7 +30,6 @@ export default function SpinWheel({ items }: { items: { name: string; thumbnail?
     if (!isDragging.current) return;
     isDragging.current = false;
     
-    // Aplicăm inerție
     const targetRotation = rotation.get() + velocity.current * 30;
     
     animate(rotation, targetRotation, {
@@ -41,7 +37,6 @@ export default function SpinWheel({ items }: { items: { name: string; thumbnail?
       ease: "easeOut",
       duration: 2,
       onComplete: () => {
-        // Ajustare finală pentru a alinia cu un segment
         const finalRotation = Math.round(rotation.get() / (360/items.length)) * (360/items.length);
         animate(rotation, finalRotation, { duration: 0.5 });
       }
@@ -53,17 +48,14 @@ export default function SpinWheel({ items }: { items: { name: string; thumbnail?
 
   return (
     <div className="relative w-[400px] h-[400px] mx-auto my-8">
-      {/* Indicator (săgeată) */}
       <div className="absolute top-0 left-1/2 w-6 h-12 bg-black transform -translate-x-1/2 -translate-y-4 z-10 clip-triangle"></div>
       
-      {/* Roata principală */}
       <motion.div
         ref={wheelRef}
         className="absolute w-full h-full rounded-full top-0 left-0 origin-center cursor-grab active:cursor-grabbing"
         style={{ rotate: rotation }}
         onPointerDown={handlePointerDown}
       >
-        {/* Segmentele roții */}
         {items.map((item, index) => {
           const angle = (360 / items.length) * index;
           const radius = 150;
@@ -88,14 +80,12 @@ export default function SpinWheel({ items }: { items: { name: string; thumbnail?
           );
         })}
 
-        {/* Centrul roții */}
         <div className="absolute top-1/2 left-1/2 w-10 h-10 bg-yellow-400 rounded-full border-4 border-yellow-600 transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
       </motion.div>
     </div>
   );
 }
 
-// Adăugăm CSS pentru triunghiul indicator
 if (typeof document !== 'undefined') {
   const style = document.createElement('style');
   style.innerHTML = `
