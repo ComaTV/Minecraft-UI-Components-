@@ -32,7 +32,7 @@ export default function SpinWheel({ items, onProjectSelect }: SpinWheelProps) {
   const getSelectedProject = (currentRotation: number): ProjectItem => {
     const normalizedRotation = (currentRotation % 360 + 360) % 360;
     const segmentAngle = 360 / items.length;
-    const pointerAngle = 270; // stânga
+    const pointerAngle = 270; 
     const selectedIndex = Math.floor(((pointerAngle - normalizedRotation + 360) % 360) / segmentAngle) % items.length;
     return items[selectedIndex];
   };
