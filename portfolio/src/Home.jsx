@@ -63,7 +63,6 @@ export default function Home() {
         </h1>
         
         <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start">
-          {/* Project Details Card */}
           <div className="w-full lg:w-1/2 lg:sticky lg:top-8">
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
               <div className="text-center mb-6">
@@ -108,7 +107,6 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Spin Wheel */}
           <div className="w-full lg:w-1/2 flex justify-center">
             <RotatingWheel 
               items={items} 

@@ -29,15 +29,14 @@ export default function SpinWheel({ items, onProjectSelect }: SpinWheelProps) {
   const centerX = 200;
   const centerY = 200;
 
-  // Function to determine which project is at the top (selected)
   const getSelectedProject = (currentRotation: number): ProjectItem => {
     const normalizedRotation = (currentRotation % 360 + 360) % 360;
     const segmentAngle = 360 / items.length;
-    const selectedIndex = Math.floor(((360 - normalizedRotation) + segmentAngle / 2) / segmentAngle) % items.length;
+    const pointerAngle = 270; // stânga
+    const selectedIndex = Math.floor(((pointerAngle - normalizedRotation + 360) % 360) / segmentAngle) % items.length;
     return items[selectedIndex];
   };
 
-  // Update selected project when rotation changes
   useEffect(() => {
     const unsubscribe = rotation.on("change", (value) => {
       if (!isDragging.current) {
@@ -92,24 +91,42 @@ export default function SpinWheel({ items, onProjectSelect }: SpinWheelProps) {
     document.removeEventListener("pointerup", handlePointerUp);
   };
 
-  const createSectorPath = (startAngle: number, endAngle: number) => {
-    const startRad = (startAngle - 90) * Math.PI / 180;
-    const endRad = (endAngle - 90) * Math.PI / 180;
-    
-    const x1 = centerX + radius * Math.cos(startRad);
-    const y1 = centerY + radius * Math.sin(startRad);
-    const x2 = centerX + radius * Math.cos(endRad);
-    const y2 = centerY + radius * Math.sin(endRad);
-    
-    const largeArcFlag = Math.abs(endAngle - startAngle) > 180 ? 1 : 0;
-    
-    return `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
+  const createSpiralEdge = (angle: number, spiralOffsetDeg: number) => {
+    const startRad = (angle - 90) * Math.PI / 180;
+    const x1 = centerX;
+    const y1 = centerY;
+    const x2 = centerX + radius * Math.cos(startRad);
+    const y2 = centerY + radius * Math.sin(startRad);
+    const control1Angle = angle + spiralOffsetDeg;
+    const control1Rad = (control1Angle - 90) * Math.PI / 180;
+    const c1x = centerX + radius * 0.5 * Math.cos(control1Rad);
+    const c1y = centerY + radius * 0.5 * Math.sin(control1Rad);
+    const control2Angle = angle + spiralOffsetDeg * 1.4;
+    const control2Rad = (control2Angle - 90) * Math.PI / 180;
+    const c2x = centerX + radius * 0.9 * Math.cos(control2Rad);
+    const c2y = centerY + radius * 0.9 * Math.sin(control2Rad);
+    return { x1, y1, c1x, c1y, c2x, c2y, x2, y2 };
+  };
+
+  const createSpiralSectorPath = (startAngle: number, endAngle: number, spiralOffsetDeg = 110) => {
+    const edge1 = createSpiralEdge(startAngle, spiralOffsetDeg);
+    const edge2 = createSpiralEdge(endAngle, -spiralOffsetDeg);
+    const arcStartX = edge1.x2;
+    const arcStartY = edge1.y2;
+    const arcEndX = edge2.x2;
+    const arcEndY = edge2.y2;
+    return [
+      `M ${edge1.x1} ${edge1.y1}`,
+      `C ${edge1.c1x} ${edge1.c1y}, ${edge1.c2x} ${edge1.c2y}, ${edge1.x2} ${edge1.y2}`,
+      `A ${radius} ${radius} 0 0 1 ${arcEndX} ${arcEndY}`,
+      `C ${edge2.c2x} ${edge2.c2y}, ${edge2.c1x} ${edge2.c1y}, ${edge2.x1} ${edge2.y1}`,
+      'Z'
+    ].join(' ');
   };
 
   return (
     <div className="relative w-[400px] h-[400px] mx-auto my-8">
-      {/* Pointer */}
-      <div className="absolute top-0 left-1/2 w-0 h-0 border-l-[12px] border-r-[12px] border-b-[24px] border-l-transparent border-r-transparent border-b-red-500 transform -translate-x-1/2 -translate-y-2 z-20"></div>
+      <div className="absolute left-0 top-1/2 w-0 h-0 border-t-[12px] border-b-[12px] border-r-[24px] border-t-transparent border-b-transparent border-r-red-500 transform -translate-y-1/2 -translate-x-2 z-20"></div>
       
       <motion.div
         ref={wheelRef}
@@ -118,76 +135,40 @@ export default function SpinWheel({ items, onProjectSelect }: SpinWheelProps) {
         onPointerDown={handlePointerDown}
       >
         <svg width="400" height="400" className="absolute top-0 left-0">
+          {/* Desenăm segmentele cu margini spiralate */}
           {items.map((item, index) => {
             const startAngle = (360 / items.length) * index;
             const endAngle = (360 / items.length) * (index + 1);
-            
+            const midAngle = (startAngle + endAngle) / 2;
+            const textRadius = radius * 0.5;
+            const textRad = (midAngle - 90) * Math.PI / 180;
+            const textX = centerX + textRadius * Math.cos(textRad);
+            const textY = centerY + textRadius * Math.sin(textRad);
+            const rotate = midAngle + 90;
             return (
-              <path
-                key={index}
-                d={createSectorPath(startAngle, endAngle)}
-                fill={index % 2 === 0 ? '#3b82f6' : '#1d4ed8'}
-                stroke="#ffffff"
-                strokeWidth="2"
-              />
+              <g key={index}>
+                <path
+                  d={createSpiralSectorPath(startAngle, endAngle, 110)}
+                  fill={index % 2 === 0 ? '#3b82f6' : '#1d4ed8'}
+                  stroke="#fff"
+                  strokeWidth="2"
+                />
+                <text
+                  x={textX}
+                  y={textY}
+                  textAnchor="middle"
+                  alignmentBaseline="middle"
+                  fontSize="16"
+                  fill="#fff"
+                  style={{ userSelect: 'none' }}
+                  transform={`rotate(${rotate} ${textX} ${textY})`}
+                >
+                  {item.title}
+                </text>
+              </g>
             );
           })}
         </svg>
-
-        {/* Text and emoji elements */}
-        {items.map((item, index) => {
-          const startAngle = (360 / items.length) * index;
-          const endAngle = (360 / items.length) * (index + 1);
-          const midAngle = (startAngle + endAngle) / 2;
-          
-          // Calculate positions for text and emoji
-          const textRadius = radius * 0.75;
-          const emojiRadius = radius * 0.45;
-          
-          const textX = centerX + textRadius * Math.cos((midAngle - 90) * Math.PI / 180);
-          const textY = centerY + textRadius * Math.sin((midAngle - 90) * Math.PI / 180);
-          const emojiX = centerX + emojiRadius * Math.cos((midAngle - 90) * Math.PI / 180);
-          const emojiY = centerY + emojiRadius * Math.sin((midAngle - 90) * Math.PI / 180);
-          
-          return (
-            <React.Fragment key={index}>
-              {/* Project name */}
-              <motion.div
-                className="absolute pointer-events-none z-10"
-                style={{
-                  left: textX,
-                  top: textY,
-                  transform: 'translate(-50%, -50%)',
-                  rotate: -rotation
-                }}
-              >
-                <div className="text-white font-bold text-sm text-center whitespace-nowrap">
-                  {item.name}
-                </div>
-              </motion.div>
-              
-              {/* Project emoji */}
-              <motion.div
-                className="absolute pointer-events-none z-10"
-                style={{
-                  left: emojiX,
-                  top: emojiY,
-                  transform: 'translate(-50%, -50%)',
-                  rotate: -rotation
-                }}
-              >
-                <div className="text-white text-xl">
-                  {item.image}
-                </div>
-              </motion.div>
-            </React.Fragment>
-          );
-        })}
-
-        {/* Center circle */}
-        <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-yellow-400 rounded-full border-4 border-yellow-600 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center shadow-lg">
-          <div className="text-2xl">🎯</div>
-        </div>
       </motion.div>
     </div>
   );
