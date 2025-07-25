@@ -5,6 +5,6 @@ import Home from './Home'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Home/>
+      <Home/>
   </StrictMode>,
 )

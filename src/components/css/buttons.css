@@ -1,0 +1,43 @@
+.btn {
+    font-size: 15px;
+    padding: 12px 24px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%; 
+    box-sizing: border-box;
+    transition: box-shadow 0.1s, transform 0.1s;
+    position: relative;
+  }
+  
+  
+.btn.important { 
+    font-family: 'MinecraftTen';
+    font-size: 20px;
+    background-color: #4caf50; 
+    border: 2px solid black;
+    color: white; 
+}
+.btn.important:hover, .btn.important.sim-hover {
+  background-color: #388e3c !important;
+}
+.btn.important:active, .btn.important.sim-active {
+  background-color: #2e7d32 !important;
+}
+
+.btn.default { 
+    background-color: #eeeeee;  
+    font-family: 'MinecraftRegular';
+    border: 2px solid rgb(145, 145, 145);
+    box-shadow: 0 6px 0 #6c6e6c, 0 0px 0px;
+    color: #222; 
+}
+.btn.default:hover, .btn.default.sim-hover {
+  background-color: #f5f5f5 !important;
+}
+
+.btn:active,
+.btn.sim-active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
