@@ -1,5 +1,5 @@
 .toggle-box {
-  width: 64px;
+  width: 68px;
   height: 32px;
   background: #444;
   border: 2px solid #000000; /* border exterior negru */
@@ -8,6 +8,7 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .toggle-box::after {
   content: "";
@@ -24,13 +25,15 @@
   width: 32px;
   height: 32px;
   background: #ccc;
-  border: 2px solid #ffffff;
+  border: 2px solid white; /* border negru */
   box-shadow: 0 5.5px 0 #585858, 0 0px 0px;
   bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
+  left: 0;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, box-shadow 0.3s;
 }
 .toggle-slider .toggle-icon {
   display: flex;
@@ -53,9 +56,9 @@
 .toggle-box.off::after {
   font-family: 'MinecraftRegular';
   color: #1f1f1f;
-  font-size: 22px;
-  left: 40px;
-  top: -3px;
+  font-size: 20px;
+  left: 44px;
+  top: -1px;
   width: 24px;
   height: 24px;
   content: "o";
