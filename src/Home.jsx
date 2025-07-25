@@ -19,6 +19,7 @@ export default function Home() {
         onClick={() => alert("Butonul a fost apăsat!")}
         variant={isOn2 ? "purple" : "default"}
       />
+      <div className="mt-4"/>
       <ImageCard
         imageSrc={poza}
         label="World"
