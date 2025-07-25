@@ -1,0 +1,76 @@
+.toggle-box {
+  width: 64px;
+  height: 32px;
+  background: #444;
+  border: 2px solid #000000; /* border exterior negru */
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.toggle-box::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  pointer-events: none;
+  z-index: 1;
+}
+.toggle-slider {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #ccc;
+  border: 2px solid #ffffff;
+  box-shadow: 0 5.5px 0 #585858, 0 0px 0px;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.toggle-slider .toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+.toggle-box.on {
+  background: #295c2a;
+}
+.toggle-box.on::before {
+  left: 4px;
+  background: #3a5;
+  border: 2px solid #295c2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-box.off::after {
+  font-family: 'MinecraftRegular';
+  color: #1f1f1f;
+  font-size: 22px;
+  left: 40px;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+  content: "o";
+  z-index: 0;
+}
+
+.toggle-box.on::after{
+    font-family: 'MinecraftTen';
+    font-weight: 900;
+    color: #abc2ac;
+    font-size: 22px;
+    left: 12px;
+    top: -8px;
+    width: 24px;
+    height: 24px;
+    content: "|";
+    z-index: 0;
+}
