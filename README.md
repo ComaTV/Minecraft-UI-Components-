@@ -1,12 +1,34 @@
-# React + Vite
+# Minecraft-Inspired React Components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project contains a collection of UI components built with React, inspired by the visual style and atmosphere of Minecraft. The goal is to bring familiar Minecraft elements into modern web applications using React and custom CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Pixel-art design components, fonts, and colors inspired by Minecraft
+- Easy to integrate into any React project
+- Customizable styles to fit your needs
 
-## Expanding the ESLint configuration
+## Installation & Usage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone this repository:
+   ```bash
+   git clone <your-repo-url>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the project locally:
+   ```bash
+   npm run dev
+   ```
+
+## Example Components
+
+- Buttons with Minecraft-style visual effects
+- Image cards with pixelated borders
+- Toggle switch in Minecraft style
+
+## Contribute
+
+Everyone is welcome to contribute with new ideas or components! Open an issue or a pull request.
