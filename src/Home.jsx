@@ -8,13 +8,14 @@ export default function Home() {
 
   return (
     <div>
-      {/* NESERIOS */}
       <div>
-        <Button label="LABEL" variant="important" style={{ marginBottom: 8 }}/>
+        <Button label="LABEL" variant="green" style={{ marginBottom: 8 }} fontFamily="MinecraftTen"/>
       </div>
-      {/* SERIOS */}
       <div>
-        <Button label="Label" style={{ marginBottom: 8 }}/>
+        <Button label="LABEL" variant="red" style={{ marginBottom: 8 }} fontFamily="MinecraftTen"/>
+      </div>
+      <div>
+        <Button label="Label" style={{ marginBottom: 8 }} fontFamily="MinecraftRegular"/>
       </div>
     </div>
   );
