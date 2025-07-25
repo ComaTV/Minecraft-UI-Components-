@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Toggle from "./components/Toggle";
+import Button from "./components/Button";
+import ImageCard from "./components/ImageCard";
+import poza from "./assets/react.svg"; // sau orice altă imagine
 
 export default function Home() {
+  const [isOn, setIsOn] = useState(false);
+  const [isOn2, setIsOn2] = useState(false);
 
   return (
-    <div style={{ background: '#2a2a2a', color: '#fff', minHeight: '100vh', fontFamily: 'sans-serif', padding: 32 }}>
-      <div style={{ textAlign: 'center', fontSize: 22, marginBottom: 24 }}>Normal</div>
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: 24 }}>
-        <div style={{ width: 40, textAlign: 'right', marginRight: 16, fontSize: 18 }}>On</div>
-        <Toggle checked={true} />
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <div style={{ width: 40, textAlign: 'right', marginRight: 16, fontSize: 18 }}>Off</div>
-        <Toggle checked={false} />
-      </div>
+    <div className="p-4">
+      <Toggle checked={isOn} onChange={setIsOn}/>
+      <div className="mt-4"/>
+      <Toggle checked={isOn} onChange={setIsOn2} disabled={isOn}/>
+      <div className="mt-4"/>
+      <Button
+        label="I want to opt in"
+        onClick={() => alert("Butonul a fost apăsat!")}
+        variant={isOn2 ? "purple" : "default"}
+      />
+      <ImageCard
+        imageSrc={poza}
+        label="World"
+        description="description"
+        onClick={() => alert("Ai apăsat cardul!")} // ← cardul devine buton
+      />
     </div>
   );
 }
