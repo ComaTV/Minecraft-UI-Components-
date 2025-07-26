@@ -1,0 +1,109 @@
+.pixel-container {
+  background-color: #333333;
+  border: 2px solid #000000;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 0px #CCCCCC,
+    inset -2px -2px 0px #666666;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  opacity: 0.3;
+}
+
+/* Variante pentru diferite tipuri de container */
+.pixel-container.small {
+  padding: 8px;
+  min-height: 40px;
+}
+
+.pixel-container.large {
+  padding: 24px;
+  min-height: 100px;
+}
+
+.pixel-container.compact {
+  padding: 8px 12px;
+  min-height: auto;
+}
+
+/* Container cu header */
+.pixel-container.with-header {
+  padding-top: 8px;
+}
+
+.pixel-container.with-header::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  height: 1px;
+  background-color: #666666;
+}
+
+/* Container pentru form-uri */
+.pixel-container.form-container {
+  background-color: #2a2a2a;
+  border-color: #444444;
+}
+
+/* Container pentru card-uri */
+.pixel-container.card {
+  background-color: #3a3a3a;
+  border-color: #555555;
+  box-shadow: 
+    inset 2px 2px 0px #DDDDDD,
+    inset -2px -2px 0px #555555,
+    0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Container pentru sidebar */
+.pixel-container.sidebar {
+  background-color: #2d2d2d;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-left: 2px solid #CCCCCC;
+  border-top: 2px solid #CCCCCC;
+}
+
+/* Container pentru modal */
+.pixel-container.modal {
+  background-color: #2a2a2a;
+  border: 3px solid #000000;
+  box-shadow: 
+    inset 3px 3px 0px #CCCCCC,
+    inset -3px -3px 0px #666666,
+    0 8px 16px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pixel-container {
+    padding: 12px;
+    margin: 8px 0;
+  }
+  
+  .pixel-container.large {
+    padding: 16px;
+  }
+} 

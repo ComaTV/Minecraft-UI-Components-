@@ -1,0 +1,99 @@
+.dropdown-container {
+  font-family: 'MinecraftRegular';
+}
+
+.dropdown-header {
+  color: #CCCCCC;
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+}
+
+.dropdown-select {
+  background-color: #eeeeee;
+  border: 2px solid #000000;
+  border-radius: 0;
+  padding: 12px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #CCCCCC;
+  transition: all 0.1s ease;
+}
+
+.dropdown-select:hover {
+  background-color: #c7c7c7;
+}
+
+.dropdown-select:active {
+  box-shadow: 
+    inset 2px 2px 0px #666666,
+    inset -2px -2px 0px #CCCCCC;
+  transform: translateY(1px);
+}
+
+.dropdown-label {
+  color: #555555;
+  font-size: 14px;
+}
+
+/* Text arrow */
+.dropdown-chevron-text {
+  color: #555555;
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+
+/* Rotate arrow when dropdown is open */
+.dropdown-select.open .dropdown-chevron-text {
+  transform: rotate(180deg);
+  top: -5px;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #eeeeee;
+  border: 2px solid #000000;
+  border-top: none;
+  z-index: 1000;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #CCCCCC;
+}
+
+.dropdown-option {
+  padding: 10px 16px;
+  color: #555555;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #888888;
+  transition: background-color 0.1s ease;
+}
+
+.dropdown-option:hover {
+  background-color: #c7c7c7;
+}
+
+.dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.dropdown-option:active {
+  background-color: #999999;
+} 
