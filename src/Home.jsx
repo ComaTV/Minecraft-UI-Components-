@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Toggle from "./components/Toggle";
 import Button from "./components/Button";
 import ImageCard from "./components/ImageCard";
+import Slider from "./components/Slider";
 import poza from "./assets/react.svg"; // sau orice altă imagine
 
 export default function Home() {
   const [isOn, setIsOn] = useState(false);
   const [isOn2, setIsOn2] = useState(false);
+  const [sliderValue, setSliderValue] = useState(50);
 
   return (
     <div className="p-4">
@@ -25,6 +27,14 @@ export default function Home() {
         label="World"
         description="description"
         onClick={() => alert("Ai apăsat cardul!")} // ← cardul devine buton
+      />
+      <div className="mt-4"/>
+      <Slider 
+        value={sliderValue} 
+        max={100} 
+        label="Set to the max" 
+        showPercentage={true}
+        onChange={setSliderValue}
       />
     </div>
   );
