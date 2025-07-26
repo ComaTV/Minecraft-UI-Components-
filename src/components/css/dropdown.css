@@ -1,15 +1,6 @@
-.dropdown-container {
-  font-family: 'MinecraftRegular';
-}
-
-.dropdown-header {
-  color: #CCCCCC;
-  font-size: 14px;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
 
 .dropdown-wrapper {
+  font-family: 'MinecraftRegular';
   position: relative;
   display: inline-block;
   width: 100%;

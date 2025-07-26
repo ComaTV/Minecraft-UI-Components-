@@ -15,8 +15,6 @@ const Dropdown = ({ header, label, options, onSelect, variant = 'default', focus
   };
 
   return (
-    <Container className="dropdown-container">
-      {header && <div className="dropdown-header">{header}</div>}
       <div className="dropdown-wrapper">
         <div 
           className={`dropdown-select ${isOpen ? 'open' : ''}`}
@@ -39,7 +37,6 @@ const Dropdown = ({ header, label, options, onSelect, variant = 'default', focus
           </div>
         )}
       </div>
-    </Container>
   );
 };
 
