@@ -30,26 +30,26 @@ export default function Home() {
 
   return (
     <div className="p-4">
-      {/* Exemplu 1: Container cu titlu și descriere - cu Tailwind */}
+      {/* Example 1: Container with title and description - with Tailwind */}
       <Container className="large">
         <h2 className="text-gray-300 mb-4">Demo Container</h2>
-        <p className="text-gray-300 text-base">Acesta este un exemplu de container reutilizabil cu stil pixelat.</p>
+        <p className="text-gray-300 text-base">This is an example of a reusable container with pixelated style.</p>
       </Container>
       
-      {/* Exemplu 2: Container pentru butoane - cu Tailwind */}
+      {/* Example 2: Container for buttons - with Tailwind */}
       <Container className="small">
-        <h3 className="text-gray-300 mb-3 text-sm">Butoane</h3>
+        <h3 className="text-gray-300 mb-3 text-sm">Buttons</h3>
         <div className="flex gap-2 flex-wrap">
-          <Button label="Click me" onClick={() => alert("Butonul a fost apăsat!")}/>
-          <Button label="Alt buton" variant="green" onClick={() => alert("Alt buton!")}/>
-          <Button label="Alt buton" variant="red" onClick={() => alert("Alt buton!")}/>
-          <Button label="Alt buton" variant="purple" onClick={() => alert("Alt buton!")}/>
+          <Button label="Click me" onClick={() => alert("Button was clicked!")}/>
+          <Button label="Another button" variant="green" onClick={() => alert("Another button!")}/>
+          <Button label="Another button" variant="red" onClick={() => alert("Another button!")}/>
+          <Button label="Another button" variant="purple" onClick={() => alert("Another button!")}/>
         </div>
       </Container>
       
-      {/* Exemplu 3: Container pentru toggle-uri - cu Tailwind */}
+      {/* Example 3: Container for toggles - with Tailwind */}
       <Container className="compact">
-        <h3 className="text-gray-300 mb-3 text-sm">Toggle-uri</h3>
+        <h3 className="text-gray-300 mb-3 text-sm">Toggles</h3>
         <div className="flex gap-4 items-center">
           <Toggle/>
           <span className="text-gray-300 text-xs">Toggle 1</span>
@@ -58,31 +58,31 @@ export default function Home() {
         </div>
       </Container>
       
-      {/* Exemplu 3.1: Container pentru checkbox-uri - cu Tailwind */}
+      {/* Example 3.1: Container for checkboxes - with Tailwind */}
       <Container className="compact mt-4">
-        <h3 className="text-gray-300 mb-3 text-sm">Checkbox-uri</h3>
+        <h3 className="text-gray-300 mb-3 text-sm">Checkboxes</h3>
         <div className="flex flex-col gap-3">
           <div className="flex gap-4 items-center">
             <Checkbox 
-              label="Checkbox normal" 
+              label="Normal checkbox" 
               checked={checkboxStates.normal}
               onChange={(checked) => handleCheckboxChange('normal', checked)}
             />
             <Checkbox 
-              label="Checkbox bifat" 
+              label="Checked checkbox" 
               checked={checkboxStates.bifat}
               onChange={(checked) => handleCheckboxChange('bifat', checked)}
             />
           </div>
           <div className="flex gap-4 items-center">
             <Checkbox 
-              label="Checkbox disabled" 
+              label="Disabled checkbox" 
               checked={checkboxStates.disabled}
               disabled={true}
               onChange={(checked) => handleCheckboxChange('disabled', checked)}
             />
             <Checkbox 
-              label="Checkbox disabled bifat" 
+              label="Disabled checked checkbox" 
               checked={checkboxStates.disabledBifat}
               disabled={true}
               onChange={(checked) => handleCheckboxChange('disabledBifat', checked)}
@@ -91,9 +91,9 @@ export default function Home() {
         </div>
       </Container>
       
-      {/* Exemplu 3.2: Container pentru input-uri - cu Tailwind */}
+      {/* Example 3.2: Container for inputs - with Tailwind */}
       <Container className="compact mt-4">
-        <h3 className="text-gray-300 mb-3 text-sm">Input-uri Text</h3>
+        <h3 className="text-gray-300 mb-3 text-sm">Text Inputs</h3>
         <div className="flex flex-col gap-4">
           <Input 
             placeholder="Placeholder"
@@ -121,7 +121,7 @@ export default function Home() {
           onSelect={(option) => console.warn("White Selected:", option)}
         />
       </Container>
-      {/* Exemplu 4.1: Dropdown Dark Mode */}
+      {/* Example 4.1: Dropdown Dark Mode */}
       <Container className="small mt-4">
         <h3 className="text-gray-300 mb-3 text-sm">Dropdown Dark Mode</h3>
         <Dropdown 
@@ -133,7 +133,7 @@ export default function Home() {
         />
       </Container>
       
-      {/* Exemplu 4.2: Dropdown Disabled */}
+      {/* Example 4.2: Dropdown Disabled */}
       <Container className="small mt-4">
         <h3 className="text-gray-300 mb-3 text-sm">Dropdown Disabled</h3>
         <Dropdown 
@@ -145,7 +145,7 @@ export default function Home() {
         />
       </Container>
       
-      {/* Exemplu 4.3: Dropdown Dark Mode + Disabled */}
+      {/* Example 4.3: Dropdown Dark Mode + Disabled */}
       <Container className="small mt-4">
         <h3 className="text-gray-300 mb-3 text-sm">Dropdown Dark + Disabled</h3>
         <Dropdown 
@@ -158,28 +158,28 @@ export default function Home() {
         />
       </Container>
       
-      {/* Exemplu 5: Container pentru card-uri de imagini - cu Tailwind */}
+      {/* Example 5: Container for image cards - with Tailwind */}
       <Container className="card">
-        <h3 className="text-gray-300 mb-3 text-sm">Card-uri</h3>
+        <h3 className="text-gray-300 mb-3 text-sm">Cards</h3>
         <div className="flex gap-4 flex-wrap">
           <ImageCard
             imageSrc={poza}
             label="World"
             description="description description description description description description description description description description description description description description description"
-            onClick={() => alert("Ai apăsat pe cardul World!")}
+            onClick={() => alert("You clicked on the World card!")}
           />
           <ImageCard
             imageSrc={poza}
             label="React"
             description="React warno"
-            onClick={() => alert("Ai apăsat pe cardul React!")}
+            onClick={() => alert("You clicked on the React card!")}
           />
         </div>
       </Container>
       
-      {/* Exemplu 6: Container pentru controale de formular - cu Tailwind */}
+      {/* Example 6: Container for form controls - with Tailwind */}
       <Container className="form-container">
-        <h3 className="text-gray-300 mb-3 text-sm">Controale</h3>
+        <h3 className="text-gray-300 mb-3 text-sm">Controls</h3>
         <div className="flex flex-col gap-4">
           <div>
             <label className="text-gray-300 text-xs block mb-1">
@@ -196,64 +196,101 @@ export default function Home() {
         </div>
       </Container>
       
-      {/* Exemplu 7: Container pentru sidebar - cu Tailwind */}
+      {/* Example 7: Container for sidebar - with Tailwind */}
       <Container className="sidebar w-64 mt-4">
         <h3 className="text-gray-300 mb-3 text-sm">Sidebar</h3>
         <div className="flex flex-col gap-2">
-          <Button label="Meniu 1" className="w-full"/>
-          <Button label="Meniu 2" variant="purple" className="w-full"/>
-          <Button label="Meniu 3" variant="red" className="w-full"/>
+          <Button label="Menu 1" className="w-full"/>
+          <Button label="Menu 2" variant="purple" className="w-full"/>
+          <Button label="Menu 3" variant="red" className="w-full"/>
         </div>
       </Container>
       
-      {/* Exemplu 8: Loading Bar Examples */}
+      {/* Example 8: Loading Bar Examples */}
       <Container className="large mt-4">
         <LoadingBar progress={25} variant="blue" />
       </Container>
 
-      {/* Exemplu 9: Container Examples - Noile variante */}
+      {/* Example 9: Container Examples - New variants */}
       <Container className="large mt-4">
         <ContainerExample />
       </Container>
 
-      {/* Exemplu 10: NotificationBox Examples */}
-      <Container variant="white" className="large mt-4">
-        <h3 className="text-gray-300 mb-3 text-sm">MessageBox Examples</h3>
+      {/* Example 10: Chat between 2 people */}
+      <Container className="large mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">Chat between Alex and Maria</h3>
         <div className="flex flex-col gap-4">
-          <MessageBox 
-            message="Acesta este un mesaj de informare"
-            type="info"
-          />
-          <MessageBox 
-            message="Operațiunea a fost finalizată cu succes!"
-            type="success"
-          />
-          <MessageBox 
-            message="Atenție! Aceasta este o notificare importantă"
-            type="warning"
-          />
-          <MessageBox 
-            message="Eroare! Ceva nu a mers bine"
-            type="error"
-          />
-          <MessageBox 
-            message="Acesta este un mesaj foarte lung care va face ca SVG-ul să se extindă pentru a se potrivi cu conținutul textului și să se împartă pe mai multe rânduri când este prea lung pentru o singură linie, demonstrând funcționalitatea de wrap text"
-            type="info"
-          />
-          <MessageBox 
-            message="Acesta este un mesaj extrem de lung care va testa funcționalitatea de wrap text la maximum. Mesajul va fi împărțit pe mai multe rânduri pentru a se potrivi în containerul SVG, demonstrând că componenta poate gestiona texte foarte lungi fără probleme de layout sau afișare."
-            type="warning"
-          />
-          <MessageBox 
-            message="Acesta este un mesaj care apare din stânga"
-            type="success"
-            direction="left"
-          />
-          <MessageBox 
-            message="Acesta este un mesaj care apare din dreapta (implicit)"
-            type="error"
-            direction="right"
-          />
+          <div className="flex justify-start">
+            <MessageBox 
+              message="Hello! How are you?"
+              type="info"
+              direction="left"
+            />
+          </div>
+          
+          <div className="flex justify-end">
+            <MessageBox 
+              message="Hello Alex! I'm fine, thank you! How about you?"
+              type="success"
+              direction="right"
+            />
+          </div>
+          
+          <div className="flex justify-start">
+            <MessageBox 
+              message="Perfect! I finished the project I was working on. Want to see it?"
+              type="info"
+              direction="left"
+            />
+          </div>
+          
+          <div className="flex justify-end">
+            <MessageBox 
+              message="Yes, sure! I'm very curious to see what you've done"
+              type="success"
+              direction="right"
+            />
+          </div>
+          
+          <div className="flex justify-start">
+            <MessageBox 
+              message="Warning! The project is very large and complex, with many advanced features including animations, visual effects and a very intuitive interface for users"
+              type="warning"
+              direction="left"
+            />
+          </div>
+          
+          <div className="flex justify-end">
+            <MessageBox 
+              message="Wow! Sounds impressive! I can't wait to see it"
+              type="success"
+              direction="right"
+            />
+          </div>
+          
+          <div className="flex justify-start">
+            <MessageBox 
+              message="Error! I forgot to save the latest changes... 😅"
+              type="error"
+              direction="left"
+            />
+          </div>
+          
+          <div className="flex justify-end">
+            <MessageBox 
+              message="No worries! It happens to everyone. You can redo it quickly"
+              type="success"
+              direction="right"
+            />
+          </div>
+          
+          <div className="flex justify-start">
+            <MessageBox 
+              message="Thank you for understanding! I'll be more careful next time"
+              type="info"
+              direction="left"
+            />
+          </div>
         </div>
       </Container>
 
