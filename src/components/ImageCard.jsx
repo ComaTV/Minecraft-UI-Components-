@@ -1,10 +1,8 @@
-import React from "react";
 import "./css/imageCard.css";
 
 export default function ImageCard({ imageSrc, label, description, onClick }) {
   const Wrapper = onClick ? 'button' : 'div';
   
-  // Check if text is long (more than 20 characters for label or 50 for description)
   const isLongLabel = label && label.length > 20;
   const isLongDescription = description && description.length > 50;
   const hasLongText = isLongLabel || isLongDescription;
