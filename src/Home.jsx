@@ -5,6 +5,7 @@ import ImageCard from "./components/ImageCard";
 import Slider from "./components/Slider";
 import Dropdown from "./components/Dropdown";
 import Container from "./components/Container";
+import Checkbox from "./components/Checkbox";
 import poza from "./assets/react.svg"; // sau orice altă imagine
 
 export default function Home() {
@@ -36,6 +37,37 @@ export default function Home() {
           <span className="text-gray-300 text-xs">Toggle 1</span>
           <Toggle checked={true}/>
           <span className="text-gray-300 text-xs">Toggle 2</span>
+        </div>
+      </Container>
+      
+      {/* Exemplu 3.1: Container pentru checkbox-uri - cu Tailwind */}
+      <Container className="compact mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">Checkbox-uri</h3>
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-4 items-center">
+            <Checkbox 
+              label="Checkbox normal" 
+              onChange={(checked) => console.warn("Checkbox normal:", checked)}
+            />
+            <Checkbox 
+              label="Checkbox bifat" 
+              checked={true}
+              onChange={(checked) => console.warn("Checkbox bifat:", checked)}
+            />
+          </div>
+          <div className="flex gap-4 items-center">
+            <Checkbox 
+              label="Checkbox disabled" 
+              disabled={true}
+              onChange={(checked) => console.warn("Checkbox disabled:", checked)}
+            />
+            <Checkbox 
+              label="Checkbox disabled bifat" 
+              checked={true}
+              disabled={true}
+              onChange={(checked) => console.warn("Checkbox disabled bifat:", checked)}
+            />
+          </div>
         </div>
       </Container>
       

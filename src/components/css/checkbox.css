@@ -1,0 +1,130 @@
+.checkbox-wrapper {
+  font-family: 'MinecraftRegular';
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-wrapper.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-visual {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-color: #888888;
+  border: 2px solid #000000;
+  transform: rotate(45deg);
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #CCCCCC;
+  transition: all 0s ease;
+}
+
+/* Inner diamond for 3D effect */
+.checkbox-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #BBBBBB;
+  transform: translate(-50%, -50%) rotate(90deg);
+  border-radius: 0;
+}
+
+/* Checked state */
+.checkbox-wrapper input:checked + .checkbox-visual {
+  background-color: #00FF00;
+}
+
+.checkbox-wrapper input:checked + .checkbox-visual::before {
+  background-color: #FFFFFF;
+}
+
+/* Hover state */
+.checkbox-wrapper:hover .checkbox-visual {
+  background-color: #999999;
+}
+
+.checkbox-wrapper input:checked:hover + .checkbox-visual {
+  background-color: #00FF00;
+}
+
+/* Focus state */
+.checkbox-wrapper input:focus + .checkbox-visual {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* Pressed state */
+.checkbox-wrapper input:active + .checkbox-visual,
+.checkbox-wrapper:active .checkbox-visual {
+  box-shadow: 
+    inset 2px 2px 0px #666666,
+    inset -2px -2px 0px #CCCCCC;
+  transform: rotate(45deg) translateY(1px);
+}
+
+.checkbox-wrapper input:active + .checkbox-visual::before,
+.checkbox-wrapper:active .checkbox-visual::before {
+  background-color: #999999;
+}
+
+.checkbox-wrapper input:checked:active + .checkbox-visual::before,
+.checkbox-wrapper input:checked + .checkbox-visual:active::before {
+  background-color: #EEEEEE;
+}
+
+/* Disabled state */
+.checkbox-wrapper.disabled .checkbox-visual {
+  background-color: #CCCCCC;
+  border-color: #999999;
+  box-shadow: 
+    inset 0px -2px 0px #999999,
+    inset 2px 2px 0px #DDDDDD;
+}
+
+.checkbox-wrapper.disabled .checkbox-visual::before {
+  background-color: #DDDDDD;
+}
+
+.checkbox-wrapper.disabled input:checked + .checkbox-visual {
+  background-color: #CCCCCC;
+}
+
+.checkbox-wrapper.disabled input:checked + .checkbox-visual::before {
+  background-color: #DDDDDD;
+}
+
+/* Disabled hover - no effect */
+.checkbox-wrapper.disabled:hover .checkbox-visual {
+  background-color: #CCCCCC;
+}
+
+.checkbox-wrapper.disabled input:checked:hover + .checkbox-visual {
+  background-color: #CCCCCC;
+}
+
+/* Label styling */
+.checkbox-label {
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.checkbox-wrapper.disabled .checkbox-label {
+  color: #999999;
+} 
