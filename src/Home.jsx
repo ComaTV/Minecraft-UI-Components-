@@ -6,6 +6,7 @@ import Slider from "./components/Slider";
 import Dropdown from "./components/Dropdown";
 import Container from "./components/Container";
 import Checkbox from "./components/Checkbox";
+import Input from "./components/Input";
 import poza from "./assets/react.svg"; // sau orice altă imagine
 
 export default function Home() {
@@ -68,6 +69,27 @@ export default function Home() {
               onChange={(checked) => console.warn("Checkbox disabled bifat:", checked)}
             />
           </div>
+        </div>
+      </Container>
+      
+      {/* Exemplu 3.2: Container pentru input-uri - cu Tailwind */}
+      <Container className="compact mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">Input-uri Text</h3>
+        <div className="flex flex-col gap-4">
+          <Input 
+            placeholder="Placeholder"
+            onChange={(value) => console.warn("Input value:", value)}
+          />
+          <Input 
+            placeholder="Input with error"
+            error={true}
+            onChange={(value) => console.warn("Error input:", value)}
+          />
+          <Input 
+            placeholder="Disabled input"
+            disabled={true}
+            onChange={(value) => console.warn("Disabled input:", value)}
+          />
         </div>
       </Container>
       

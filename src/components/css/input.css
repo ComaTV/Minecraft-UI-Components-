@@ -1,0 +1,81 @@
+.input-wrapper {
+  font-family: 'MinecraftRegular';
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-label {
+  color: #dddddd;
+  font-size: 14px;
+  line-height: 1;
+  text-align: left;
+}
+
+.input-field {
+  background-color: #2a2a2a;
+  border: 2px solid #000000;
+  padding: 12px 16px;
+  font-family: 'MinecraftRegular';
+  font-size: 14px;
+  color: #dddddd;
+  outline: none;
+  box-shadow: 
+    inset 2px 2px 0px #1a1a1a,
+    inset -2px -2px 0px #4a4a4a;
+  transition: all 0s ease;
+}
+
+.input-field::placeholder {
+  color: #999999;
+  font-family: 'MinecraftRegular';
+  font-size: 14px;
+}
+
+.input-field:focus {
+  box-shadow: 
+    inset 2px 2px 0px #1a1a1a,
+    inset -2px -2px 0px #4a4a4a,
+    0 0 0 2px #ffffff;
+}
+
+.input-description {
+  color: #dddddd;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+}
+
+/* Disabled state */
+.input-wrapper.disabled .input-field {
+  background-color: #1a1a1a;
+  border-color: #555555;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.input-wrapper.disabled .input-label {
+  color: #999999;
+}
+
+.input-wrapper.disabled .input-description {
+  color: #999999;
+}
+
+.input-wrapper.disabled .input-field::placeholder {
+  color: #666666;
+}
+
+/* Error state */
+.input-wrapper.error .input-field {
+  border-color: #ff0000;
+  box-shadow: 
+    inset 2px 2px 0px #1a1a1a,
+    inset -2px -2px 0px #4a4a4a,
+    0 0 0 2px #ff0000;
+}
+
+.input-wrapper.error .input-description {
+  color: #ff6666;
+} 
