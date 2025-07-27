@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './css/input.css';
 
 const Input = ({ 
@@ -39,6 +40,17 @@ const Input = ({
       />
     </div>
   );
+};
+
+Input.propTypes = {
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  type: PropTypes.string,
+  id: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default Input; 

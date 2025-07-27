@@ -47,11 +47,11 @@
 
 /* Checked state */
 .checkbox-wrapper input:checked + .checkbox-visual {
-  background-color: #00FF00;
+  background-color: #00FF00 !important;
 }
 
 .checkbox-wrapper input:checked + .checkbox-visual::before {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
 }
 
 /* Hover state */
@@ -60,7 +60,7 @@
 }
 
 .checkbox-wrapper input:checked:hover + .checkbox-visual {
-  background-color: #00FF00;
+  background-color: #00FF00 !important;
 }
 
 /* Focus state */

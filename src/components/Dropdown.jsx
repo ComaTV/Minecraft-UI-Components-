@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Container from './Container';
 import './css/dropdown.css';
 
 const Dropdown = ({ header, label, options, onSelect, variant = 'default', focused = false, pressed = false, dark = false, disabled = false }) => {

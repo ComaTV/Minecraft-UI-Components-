@@ -106,4 +106,208 @@
   .pixel-container.large {
     padding: 16px;
   }
+}
+
+/* ===== NOILE VARIANTE DE CONTAINERE ===== */
+
+/* Container deschis - fără fundal, doar border */
+.pixel-container-open {
+  background-color: transparent;
+  border: 2px solid #666666;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-open::before {
+  display: none;
+}
+
+/* Container negru cu fundal transparent */
+.pixel-container-transparent {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #333333;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 0px rgba(255, 255, 255, 0.1),
+    inset -2px -2px 0px rgba(0, 0, 0, 0.3);
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(5px);
+}
+
+.pixel-container-transparent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  opacity: 0.2;
+}
+
+/* Container întunecat */
+.pixel-container-dark {
+  background-color: #1a1a1a;
+  border: 2px solid #000000;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 0px #444444,
+    inset -2px -2px 0px #000000;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  opacity: 0.1;
+}
+
+/* Container glass - efect de sticlă */
+.pixel-container-glass {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.pixel-container-glass::before {
+  display: none;
+}
+
+/* Container outlined - doar outline */
+.pixel-container-outlined {
+  background-color: transparent;
+  border: 2px dashed #666666;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-outlined::before {
+  display: none;
+}
+
+/* Container minimal - foarte simplu */
+.pixel-container-minimal {
+  background-color: transparent;
+  border: 1px solid #444444;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-minimal::before {
+  display: none;
+}
+
+/* Container white mode - fundal alb cu linie gri la bază */
+.pixel-container-white {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #333333;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-white::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #cccccc;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pixel-container-white::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-color: #333333;
+  z-index: -1;
+}
+
+/* Responsive pentru noile variante */
+@media (max-width: 768px) {
+  .pixel-container-open,
+  .pixel-container-transparent,
+  .pixel-container-dark,
+  .pixel-container-glass,
+  .pixel-container-outlined,
+  .pixel-container-minimal {
+    padding: 12px;
+    margin: 8px 0;
+  }
 } 

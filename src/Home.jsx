@@ -7,9 +7,25 @@ import Dropdown from "./components/Dropdown";
 import Container from "./components/Container";
 import Checkbox from "./components/Checkbox";
 import Input from "./components/Input";
+import LoadingBar from "./components/LoadingBar";
+import ContainerExample from "./components/ContainerExample";
 import poza from "./assets/react.svg"; // sau orice altă imagine
 
 export default function Home() {
+  const [checkboxStates, setCheckboxStates] = useState({
+    normal: false,
+    bifat: true,
+    disabled: false,
+    disabledBifat: true
+  });
+
+  const handleCheckboxChange = (key, checked) => {
+    setCheckboxStates(prev => ({
+      ...prev,
+      [key]: checked
+    }));
+    console.warn(`Checkbox ${key}:`, checked);
+  };
 
   return (
     <div className="p-4">
@@ -48,25 +64,27 @@ export default function Home() {
           <div className="flex gap-4 items-center">
             <Checkbox 
               label="Checkbox normal" 
-              onChange={(checked) => console.warn("Checkbox normal:", checked)}
+              checked={checkboxStates.normal}
+              onChange={(checked) => handleCheckboxChange('normal', checked)}
             />
             <Checkbox 
               label="Checkbox bifat" 
-              checked={true}
-              onChange={(checked) => console.warn("Checkbox bifat:", checked)}
+              checked={checkboxStates.bifat}
+              onChange={(checked) => handleCheckboxChange('bifat', checked)}
             />
           </div>
           <div className="flex gap-4 items-center">
             <Checkbox 
               label="Checkbox disabled" 
+              checked={checkboxStates.disabled}
               disabled={true}
-              onChange={(checked) => console.warn("Checkbox disabled:", checked)}
+              onChange={(checked) => handleCheckboxChange('disabled', checked)}
             />
             <Checkbox 
               label="Checkbox disabled bifat" 
-              checked={true}
+              checked={checkboxStates.disabledBifat}
               disabled={true}
-              onChange={(checked) => console.warn("Checkbox disabled bifat:", checked)}
+              onChange={(checked) => handleCheckboxChange('disabledBifat', checked)}
             />
           </div>
         </div>
@@ -146,7 +164,7 @@ export default function Home() {
           <ImageCard
             imageSrc={poza}
             label="World"
-            description="description"
+            description="description description description description description description description description description description description description description description description"
             onClick={() => alert("Ai apăsat pe cardul World!")}
           />
           <ImageCard
@@ -186,6 +204,17 @@ export default function Home() {
           <Button label="Meniu 3" variant="red" className="w-full"/>
         </div>
       </Container>
+      
+      {/* Exemplu 8: Loading Bar Examples */}
+      <Container className="large mt-4">
+        <LoadingBar progress={25} variant="blue" />
+      </Container>
+
+      {/* Exemplu 9: Container Examples - Noile variante */}
+      <Container className="large mt-4">
+        <ContainerExample />
+      </Container>
+
     </div>
   );
 }
