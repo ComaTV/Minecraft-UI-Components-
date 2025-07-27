@@ -1,0 +1,9 @@
+.message-box .message-background svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.message-box .message-background svg text {
+  font-family: 'MinecraftRegular', sans-serif;
+  font-size: 14px;
+}

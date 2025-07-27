@@ -47,7 +47,6 @@
   text-align: left;
 }
 
-/* Disabled state */
 .input-wrapper.disabled .input-field {
   background-color: #1a1a1a;
   border-color: #555555;
@@ -67,7 +66,6 @@
   color: #666666;
 }
 
-/* Error state */
 .input-wrapper.error .input-field {
   border-color: #ff0000;
   box-shadow: 

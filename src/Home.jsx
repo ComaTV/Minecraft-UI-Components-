@@ -9,6 +9,7 @@ import Checkbox from "./components/Checkbox";
 import Input from "./components/Input";
 import LoadingBar from "./components/LoadingBar";
 import ContainerExample from "./components/ContainerExample";
+import MessageBox from "./components/MessageBox";
 import poza from "./assets/react.svg"; // sau orice altă imagine
 
 export default function Home() {
@@ -213,6 +214,47 @@ export default function Home() {
       {/* Exemplu 9: Container Examples - Noile variante */}
       <Container className="large mt-4">
         <ContainerExample />
+      </Container>
+
+      {/* Exemplu 10: NotificationBox Examples */}
+      <Container variant="white" className="large mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">MessageBox Examples</h3>
+        <div className="flex flex-col gap-4">
+          <MessageBox 
+            message="Acesta este un mesaj de informare"
+            type="info"
+          />
+          <MessageBox 
+            message="Operațiunea a fost finalizată cu succes!"
+            type="success"
+          />
+          <MessageBox 
+            message="Atenție! Aceasta este o notificare importantă"
+            type="warning"
+          />
+          <MessageBox 
+            message="Eroare! Ceva nu a mers bine"
+            type="error"
+          />
+          <MessageBox 
+            message="Acesta este un mesaj foarte lung care va face ca SVG-ul să se extindă pentru a se potrivi cu conținutul textului și să se împartă pe mai multe rânduri când este prea lung pentru o singură linie, demonstrând funcționalitatea de wrap text"
+            type="info"
+          />
+          <MessageBox 
+            message="Acesta este un mesaj extrem de lung care va testa funcționalitatea de wrap text la maximum. Mesajul va fi împărțit pe mai multe rânduri pentru a se potrivi în containerul SVG, demonstrând că componenta poate gestiona texte foarte lungi fără probleme de layout sau afișare."
+            type="warning"
+          />
+          <MessageBox 
+            message="Acesta este un mesaj care apare din stânga"
+            type="success"
+            direction="left"
+          />
+          <MessageBox 
+            message="Acesta este un mesaj care apare din dreapta (implicit)"
+            type="error"
+            direction="right"
+          />
+        </div>
       </Container>
 
     </div>
