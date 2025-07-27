@@ -39,13 +39,51 @@ export default function Home() {
         </div>
       </Container>
       
-      {/* Exemplu 4: Dropdown cu container (deja implementat) */}
-      <Dropdown 
-        header="Header"
-        label="Label"
-        options={["Option 1", "Option 2", "Option 3", "Option 4"]}
-        onSelect={(option) => console.log("Selected:", option)}
-      />
+      <Container className="small mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">Dropdown Dark Mode</h3>
+        <Dropdown 
+          header="Header"
+          label="White Dropdown"
+          options={["White Option 1", "White Option 2", "White Option 3"]}
+          onSelect={(option) => console.warn("White Selected:", option)}
+        />
+      </Container>
+      {/* Exemplu 4.1: Dropdown Dark Mode */}
+      <Container className="small mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">Dropdown Dark Mode</h3>
+        <Dropdown 
+          header="Header"
+          label="Dark Dropdown"
+          options={["Dark Option 1", "Dark Option 2", "Dark Option 3"]}
+          onSelect={(option) => console.warn("Dark Selected:", option)}
+          dark={true}
+        />
+      </Container>
+      
+      {/* Exemplu 4.2: Dropdown Disabled */}
+      <Container className="small mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">Dropdown Disabled</h3>
+        <Dropdown 
+          header="Header"
+          label="Disabled Dropdown"
+          options={["Option 1", "Option 2", "Option 3"]}
+          onSelect={(option) => console.warn("Selected:", option)}
+          disabled={true}
+        />
+      </Container>
+      
+      {/* Exemplu 4.3: Dropdown Dark Mode + Disabled */}
+      <Container className="small mt-4">
+        <h3 className="text-gray-300 mb-3 text-sm">Dropdown Dark + Disabled</h3>
+        <Dropdown 
+          header="Header"
+          label="Dark Disabled"
+          options={["Option 1", "Option 2", "Option 3"]}
+          onSelect={(option) => console.warn("Selected:", option)}
+          dark={true}
+          disabled={true}
+        />
+      </Container>
       
       {/* Exemplu 5: Container pentru card-uri de imagini - cu Tailwind */}
       <Container className="card">
@@ -60,7 +98,7 @@ export default function Home() {
           <ImageCard
             imageSrc={poza}
             label="React"
-            description="React logo"
+            description="React warno"
             onClick={() => alert("Ai apăsat pe cardul React!")}
           />
         </div>
@@ -74,13 +112,13 @@ export default function Home() {
             <label className="text-gray-300 text-xs block mb-1">
               Slider 1
             </label>
-            <Slider value={50} onChange={(value) => console.log("Slider 1:", value)}/>
+            <Slider value={50} onChange={(value) => console.warn("Slider 1:", value)}/>
           </div>
           <div>
             <label className="text-gray-300 text-xs block mb-1">
               Slider 2
             </label>
-            <Slider value={75} onChange={(value) => console.log("Slider 2:", value)}/>
+            <Slider value={75} onChange={(value) => console.warn("Slider 2:", value)}/>
           </div>
         </div>
       </Container>

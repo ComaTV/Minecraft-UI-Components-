@@ -87,4 +87,106 @@
 
 .dropdown-option:active {
   background-color: #999999;
+}
+
+/* Dark Mode Variant */
+.dropdown-wrapper.dark .dropdown-select {
+  background-color: #2a2a2a;
+  border: 2px solid #000000;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #444444;
+}
+
+.dropdown-wrapper.dark .dropdown-select:hover {
+  background-color: #3a3a3a;
+}
+
+.dropdown-wrapper.dark .dropdown-select:active {
+  box-shadow: 
+    inset 2px 2px 0px #666666,
+    inset -2px -2px 0px #444444;
+}
+
+.dropdown-wrapper.dark .dropdown-label {
+  color: #ffffff;
+}
+
+.dropdown-wrapper.dark .dropdown-chevron-text {
+  color: #ffffff;
+}
+
+.dropdown-wrapper.dark .dropdown-options {
+  background-color: #2a2a2a;
+  border: 2px solid #000000;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #444444;
+}
+
+.dropdown-wrapper.dark .dropdown-option {
+  color: #ffffff;
+  border-bottom: 1px solid #555555;
+}
+
+.dropdown-wrapper.dark .dropdown-option:hover {
+  background-color: #3a3a3a;
+}
+
+.dropdown-wrapper.dark .dropdown-option:active {
+  background-color: #555555;
+}
+
+/* Disabled Variant */
+.dropdown-wrapper.disabled .dropdown-select {
+  background-color: #cccccc;
+  border: 2px solid #999999;
+  cursor: not-allowed;
+  box-shadow: 
+    inset 0px -2px 0px #999999,
+    inset 2px 2px 0px #dddddd;
+}
+
+.dropdown-wrapper.disabled .dropdown-select:hover {
+  background-color: #cccccc;
+}
+
+.dropdown-wrapper.disabled .dropdown-select:active {
+  box-shadow: 
+    inset 0px -2px 0px #999999,
+    inset 2px 2px 0px #dddddd;
+  transform: none;
+}
+
+.dropdown-wrapper.disabled .dropdown-label {
+  color: #999999;
+}
+
+.dropdown-wrapper.disabled .dropdown-chevron-text {
+  color: #999999;
+}
+
+.dropdown-wrapper.disabled .dropdown-options {
+  display: none;
+}
+
+/* Dark Mode + Disabled Variant */
+.dropdown-wrapper.dark.disabled .dropdown-select {
+  background-color: #1a1a1a;
+  border: 2px solid #555555;
+  box-shadow: 
+    inset 0px -2px 0px #555555,
+    inset 2px 2px 0px #333333;
+}
+
+.dropdown-wrapper.dark.disabled .dropdown-select:hover {
+  background-color: #1a1a1a;
+}
+
+.dropdown-wrapper.dark.disabled .dropdown-label {
+  color: #666666;
+}
+
+.dropdown-wrapper.dark.disabled .dropdown-chevron-text {
+  color: #666666;
 } 
