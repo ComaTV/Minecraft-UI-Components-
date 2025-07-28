@@ -1,0 +1,1042 @@
+.btn {
+    font-size: 15px;
+    padding: 12px 24px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%; 
+    box-sizing: border-box;
+    transition: box-shadow 0.1s, transform 0.1s;
+    position: relative;
+  }
+  
+  
+.btn.green { 
+    font-family: 'MinecraftTen';
+    background-color: #5eac3b; 
+    border: 2px solid #7ed957;
+    box-shadow: 0 6px 0 #357226, 0 0px 0px;
+    color: white; 
+    text-shadow: 2px 2px 0 #357226, 0 2px 0 #357226, 2px 0 0 #357226;
+}
+.btn.green:active, .btn.green.sim-active {
+    box-shadow: none !important;
+    transform: translateY(2px);
+}
+
+.btn.red { 
+    font-family: 'MinecraftTen';
+    background-color: #d13b4a; 
+    border: 2px solid #fa6d7b;
+    box-shadow: 0 6px 0 #a52e3a, 0 0px 0px;
+    color: white; 
+    text-shadow: 2px 2px 0 #490f14, 0 2px 0 #490f14, 2px 0 0 #490f14;
+}
+.btn.red:active, .btn.red.sim-active {
+    box-shadow: none !important;
+    transform: translateY(2px);
+}
+
+.btn.purple { 
+    font-family: 'MinecraftTen';
+    background-color: #953bd1; 
+    border: 2px solid #cc80ff;
+    box-shadow: 0 6px 0 #782eaa, 0 0px 0px;
+    color: white; 
+    text-shadow: 2px 2px 0 #370f49, 0 2px 0 #370f49, 2px 0 0 #370f49;
+}
+.btn.purple:active, .btn.purple.sim-active {
+    transform: translateY(2px);
+}
+
+.btn.default { 
+    background-color: #eeeeee;  
+    font-family: 'MinecraftRegular';
+    border: 2px solid rgb(145, 145, 145);
+    box-shadow: 0 6px 0 #6c6e6c, 0 0px 0px;
+    color: #222; 
+}
+
+.btn:active,
+.btn.sim-active {
+  box-shadow: none !important;
+  transform: translateY(2px);
+}
+.checkbox-wrapper {
+  font-family: 'MinecraftRegular';
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-wrapper.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-visual {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-color: #888888;
+  border: 2px solid #000000;
+  transform: rotate(45deg);
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #CCCCCC;
+  transition: all 0s ease;
+}
+
+.checkbox-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #BBBBBB;
+  transform: translate(-50%, -50%) rotate(90deg);
+  border-radius: 0;
+}
+
+.checkbox-wrapper input:checked + .checkbox-visual {
+  background-color: #00FF00 !important;
+}
+
+.checkbox-wrapper input:checked + .checkbox-visual::before {
+  background-color: #FFFFFF !important;
+}
+
+.checkbox-wrapper:hover .checkbox-visual {
+  background-color: #999999;
+}
+
+.checkbox-wrapper input:checked:hover + .checkbox-visual {
+  background-color: #00FF00 !important;
+}
+
+.checkbox-wrapper input:focus + .checkbox-visual {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.checkbox-wrapper input:active + .checkbox-visual,
+.checkbox-wrapper:active .checkbox-visual {
+  box-shadow: 
+    inset 2px 2px 0px #666666,
+    inset -2px -2px 0px #CCCCCC;
+  transform: rotate(45deg) translateY(1px);
+}
+
+.checkbox-wrapper input:active + .checkbox-visual::before,
+.checkbox-wrapper:active .checkbox-visual::before {
+  background-color: #999999;
+}
+
+.checkbox-wrapper input:checked:active + .checkbox-visual::before,
+.checkbox-wrapper input:checked + .checkbox-visual:active::before {
+  background-color: #EEEEEE;
+}
+
+.checkbox-wrapper.disabled .checkbox-visual {
+  background-color: #CCCCCC;
+  border-color: #999999;
+  box-shadow: 
+    inset 0px -2px 0px #999999,
+    inset 2px 2px 0px #DDDDDD;
+}
+
+.checkbox-wrapper.disabled .checkbox-visual::before {
+  background-color: #DDDDDD;
+}
+
+.checkbox-wrapper.disabled input:checked + .checkbox-visual {
+  background-color: #CCCCCC;
+}
+
+.checkbox-wrapper.disabled input:checked + .checkbox-visual::before {
+  background-color: #DDDDDD;
+}
+
+.checkbox-wrapper.disabled:hover .checkbox-visual {
+  background-color: #CCCCCC;
+}
+
+.checkbox-wrapper.disabled input:checked:hover + .checkbox-visual {
+  background-color: #CCCCCC;
+}
+
+.checkbox-label {
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.checkbox-wrapper.disabled .checkbox-label {
+  color: #999999;
+} 
+.pixel-container {
+  background-color: #333333;
+  border: 2px solid #000000;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 0px #CCCCCC,
+    inset -2px -2px 0px #666666;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  opacity: 0.3;
+}
+
+.pixel-container.small {
+  padding: 8px;
+  min-height: 40px;
+}
+
+.pixel-container.large {
+  padding: 24px;
+  min-height: 100px;
+}
+
+.pixel-container.compact {
+  padding: 8px 12px;
+  min-height: auto;
+}
+
+.pixel-container.with-header {
+  padding-top: 8px;
+}
+
+.pixel-container.with-header::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  height: 1px;
+  background-color: #666666;
+}
+
+.pixel-container.form-container {
+  background-color: #2a2a2a;
+  border-color: #444444;
+}
+
+.pixel-container.card {
+  background-color: #3a3a3a;
+  border-color: #555555;
+  box-shadow: 
+    inset 2px 2px 0px #DDDDDD,
+    inset -2px -2px 0px #555555,
+    0 4px 8px rgba(0,0,0,0.3);
+}
+
+.pixel-container.sidebar {
+  background-color: #2d2d2d;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-left: 2px solid #CCCCCC;
+  border-top: 2px solid #CCCCCC;
+}
+
+.pixel-container.modal {
+  background-color: #2a2a2a;
+  border: 3px solid #000000;
+  box-shadow: 
+    inset 3px 3px 0px #CCCCCC,
+    inset -3px -3px 0px #666666,
+    0 8px 16px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .pixel-container {
+    padding: 12px;
+    margin: 8px 0;
+  }
+  
+  .pixel-container.large {
+    padding: 16px;
+  }
+}
+
+.pixel-container-open {
+  background-color: transparent;
+  border: 2px solid #666666;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-open::before {
+  display: none;
+}
+
+.pixel-container-transparent {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #333333;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 0px rgba(255, 255, 255, 0.1),
+    inset -2px -2px 0px rgba(0, 0, 0, 0.3);
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(5px);
+}
+
+.pixel-container-transparent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  opacity: 0.2;
+}
+
+.pixel-container-dark {
+  background-color: #1a1a1a;
+  border: 2px solid #000000;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 0px #444444,
+    inset -2px -2px 0px #000000;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  opacity: 0.1;
+}
+
+.pixel-container-glass {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.pixel-container-glass::before {
+  display: none;
+}
+
+.pixel-container-outlined {
+  background-color: transparent;
+  border: 2px dashed #666666;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-outlined::before {
+  display: none;
+}
+
+.pixel-container-minimal {
+  background-color: transparent;
+  border: 1px solid #444444;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: none;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-minimal::before {
+  display: none;
+}
+
+.pixel-container-white {
+  background-color: #d2d3d7;
+  border: 2px solid #000000;
+  border-radius: 0;
+  padding: 16px;
+  margin: 10px 0;
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 0px #ffffff,
+    inset -2px -2px 0px #666666;
+  font-family: 'MinecraftRegular', monospace;
+  color: #CCCCCC;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-container-white::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  opacity: 0.3;
+}
+
+.pixel-container-white::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-color: #d2d3d7;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .pixel-container-open,
+  .pixel-container-transparent,
+  .pixel-container-dark,
+  .pixel-container-glass,
+  .pixel-container-outlined,
+  .pixel-container-minimal {
+    padding: 12px;
+    margin: 8px 0;
+  }
+} 
+
+.dropdown-wrapper {
+  font-family: 'MinecraftRegular';
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+}
+
+.dropdown-select {
+  background-color: #eeeeee;
+  border: 2px solid #000000;
+  border-radius: 0;
+  padding: 12px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #CCCCCC;
+  transition: all 0.1s ease;
+}
+
+.dropdown-select:hover {
+  background-color: #c7c7c7;
+}
+
+.dropdown-select:active {
+  box-shadow: 
+    inset 2px 2px 0px #666666,
+    inset -2px -2px 0px #CCCCCC;
+  transform: translateY(1px);
+}
+
+.dropdown-label {
+  color: #555555;
+  font-size: 14px;
+}
+
+.dropdown-chevron-text {
+  color: #555555;
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+
+.dropdown-select.open .dropdown-chevron-text {
+  transform: rotate(180deg);
+  top: -5px;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #eeeeee;
+  border: 2px solid #000000;
+  border-top: none;
+  z-index: 1000;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #CCCCCC;
+}
+
+.dropdown-option {
+  padding: 10px 16px;
+  color: #555555;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #888888;
+  transition: background-color 0.1s ease;
+}
+
+.dropdown-option:hover {
+  background-color: #c7c7c7;
+}
+
+.dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.dropdown-option:active {
+  background-color: #999999;
+}
+
+.dropdown-wrapper.dark .dropdown-select {
+  background-color: #2a2a2a;
+  border: 2px solid #000000;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #444444;
+}
+
+.dropdown-wrapper.dark .dropdown-select:hover {
+  background-color: #3a3a3a;
+}
+
+.dropdown-wrapper.dark .dropdown-select:active {
+  box-shadow: 
+    inset 2px 2px 0px #666666,
+    inset -2px -2px 0px #444444;
+}
+
+.dropdown-wrapper.dark .dropdown-label {
+  color: #ffffff;
+}
+
+.dropdown-wrapper.dark .dropdown-chevron-text {
+  color: #ffffff;
+}
+
+.dropdown-wrapper.dark .dropdown-options {
+  background-color: #2a2a2a;
+  border: 2px solid #000000;
+  box-shadow: 
+    inset 0px -2px 0px #666666,
+    inset 2px 2px 0px #444444;
+}
+
+.dropdown-wrapper.dark .dropdown-option {
+  color: #ffffff;
+  border-bottom: 1px solid #555555;
+}
+
+.dropdown-wrapper.dark .dropdown-option:hover {
+  background-color: #3a3a3a;
+}
+
+.dropdown-wrapper.dark .dropdown-option:active {
+  background-color: #555555;
+}
+
+.dropdown-wrapper.disabled .dropdown-select {
+  background-color: #cccccc;
+  border: 2px solid #999999;
+  cursor: not-allowed;
+  box-shadow: 
+    inset 0px -2px 0px #999999,
+    inset 2px 2px 0px #dddddd;
+}
+
+.dropdown-wrapper.disabled .dropdown-select:hover {
+  background-color: #cccccc;
+}
+
+.dropdown-wrapper.disabled .dropdown-select:active {
+  box-shadow: 
+    inset 0px -2px 0px #999999,
+    inset 2px 2px 0px #dddddd;
+  transform: none;
+}
+
+.dropdown-wrapper.disabled .dropdown-label {
+  color: #999999;
+}
+
+.dropdown-wrapper.disabled .dropdown-chevron-text {
+  color: #999999;
+}
+
+.dropdown-wrapper.disabled .dropdown-options {
+  display: none;
+}
+
+.dropdown-wrapper.dark.disabled .dropdown-select {
+  background-color: #1a1a1a;
+  border: 2px solid #555555;
+  box-shadow: 
+    inset 0px -2px 0px #555555,
+    inset 2px 2px 0px #333333;
+}
+
+.dropdown-wrapper.dark.disabled .dropdown-select:hover {
+  background-color: #1a1a1a;
+}
+
+.dropdown-wrapper.dark.disabled .dropdown-label {
+  color: #666666;
+}
+
+.dropdown-wrapper.dark.disabled .dropdown-chevron-text {
+  color: #666666;
+} 
+.image-card {
+  width: 220px;
+  min-height: 220px;
+  height: auto;
+  overflow: hidden;
+  box-shadow: 0 8px 0px rgb(66, 66, 66);
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #333;
+  align-self: flex-start;
+}
+
+.image-card-long-text {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.image-card-clickable {
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.image-card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0px rgb(66, 66, 66);
+}
+
+.image-card-clickable:active {
+  box-shadow: none;
+  transform: translateY(8px);
+}
+
+.image-card-img {
+  width: 100%;
+  height: 160px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+}
+
+.image-card-info {
+  font-family: 'MinecraftRegular';
+  flex: 1;
+  background: #555;
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 60px;
+  height: auto;
+}
+
+.image-card-label {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.image-card-label-long {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.image-card-description {
+  font-size: 0.95rem;
+  color: #ccc;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+.image-card-description-long {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+} 
+.input-wrapper {
+  font-family: 'MinecraftRegular';
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-label {
+  color: #dddddd;
+  font-size: 14px;
+  line-height: 1;
+  text-align: left;
+}
+
+.input-field {
+  background-color: #2a2a2a;
+  border: 2px solid #000000;
+  padding: 12px 16px;
+  font-family: 'MinecraftRegular';
+  font-size: 14px;
+  color: #dddddd;
+  outline: none;
+  box-shadow: 
+    inset 2px 2px 0px #1a1a1a,
+    inset -2px -2px 0px #4a4a4a;
+  transition: all 0s ease;
+}
+
+.input-field::placeholder {
+  color: #999999;
+  font-family: 'MinecraftRegular';
+  font-size: 14px;
+}
+
+.input-field:focus {
+  box-shadow: 
+    inset 2px 2px 0px #1a1a1a,
+    inset -2px -2px 0px #4a4a4a,
+    0 0 0 2px #ffffff;
+}
+
+.input-description {
+  color: #dddddd;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+}
+
+.input-wrapper.disabled .input-field {
+  background-color: #1a1a1a;
+  border-color: #555555;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.input-wrapper.disabled .input-label {
+  color: #999999;
+}
+
+.input-wrapper.disabled .input-description {
+  color: #999999;
+}
+
+.input-wrapper.disabled .input-field::placeholder {
+  color: #666666;
+}
+
+.input-wrapper.error .input-field {
+  border-color: #ff0000;
+  box-shadow: 
+    inset 2px 2px 0px #1a1a1a,
+    inset -2px -2px 0px #4a4a4a,
+    0 0 0 2px #ff0000;
+}
+
+.input-wrapper.error .input-description {
+  color: #ff6666;
+} 
+.loading-bar-container {
+  position: relative;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.loading-bar-fill {
+  position: relative;
+  transition: width 0.3s ease-in-out;
+}
+
+.loading-bar-fill.blue {
+  background-color: #00bfff;
+}
+
+.loading-bar-fill.green {
+  background-color: #00ff00;
+}
+
+.loading-bar-fill.red {
+  background-color: #ff0000;
+}
+
+.loading-bar-fill.purple {
+  background-color: #800080;
+}
+
+.loading-bar-fill.orange {
+  background-color: #ffa500;
+}
+
+.loading-bar-fill.yellow {
+  background-color: #ffff00;
+}
+
+.loading-bar-fill.cyan {
+  background-color: #00ffff;
+}
+
+.loading-bar-fill.pink {
+  background-color: #ffc0cb;
+}
+
+.loading-bar-fill.gray {
+  background-color: #808080;
+}
+
+.loading-bar-fill.white {
+  background-color: #ffffff;
+}
+
+ 
+.message-box .message-background svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.message-box .message-background svg text {
+  font-family: 'MinecraftRegular', sans-serif;
+  font-size: 14px;
+}
+
+
+.progress-slider-track {
+  position: relative;
+  height: 10px;
+  background-color: #404040;
+  cursor: pointer;
+  user-select: none;
+}
+
+.progress-slider-track.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.progress-slider-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    #2d5a2d 0%, 
+    #4a7c4a 50%, 
+    #2d5a2d 100%
+  );
+  transition: width 0s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.progress-slider-thumb {
+  position: absolute;
+  top: -12px;
+  width: 26px;
+  height: 26px;
+  background-color: #bdbdbd;
+  border: 1.5px solid white;
+  box-shadow: 
+    0 4px 0px rgb(66, 66, 66);
+  transition: left 0s ease, top 0.1s ease, box-shadow 0.1s ease;
+  z-index: 9999;
+}
+
+.progress-slider-thumb.dragging {
+  top: -8px;
+}
+
+.progress-slider-thumb:hover {
+  background-color: #e0e0e0;
+}
+
+.progress-slider-thumb.dragging {
+  background-color: #f0f0f0;
+  box-shadow: none;
+} 
+.toggle-box {
+  width: 68px;
+  height: 32px;
+  background: #444;
+  border: 2px solid #000000;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggle-box::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  pointer-events: none;
+  z-index: 1;
+}
+.toggle-slider {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #ccc;
+  border: 2px solid white;
+  box-shadow: 0 5.5px 0 #585858, 0 0px 0px;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  left: 0;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, box-shadow 0.3s;
+}
+.toggle-slider .toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+.toggle-box.on {
+  background: #295c2a;
+}
+.toggle-box.on::before {
+  left: 4px;
+  background: #3a5;
+  border: 2px solid #295c2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-box.off::after {
+  font-family: 'MinecraftRegular';
+  color: #1f1f1f;
+  font-size: 20px;
+  left: 44px;
+  top: -1px;
+  width: 24px;
+  height: 24px;
+  content: "o";
+  z-index: 0;
+}
+
+.toggle-box.on::after{
+    font-family: 'MinecraftTen';
+    font-weight: 900;
+    color: #abc2ac;
+    font-size: 22px;
+    left: 12px;
+    top: -8px;
+    width: 24px;
+    height: 24px;
+    content: "|";
+    z-index: 0;
+}
+.toggle-box.disabled {
+  cursor: not-allowed;
+  opacity: 1;
+  filter: none;
+  background: #e0e0e0 !important;
+  border-color: #cccccc !important;
+  pointer-events: none;
+}
+.toggle-slider.disabled {
+  cursor: not-allowed;
+  opacity: 1;
+  background: #f5f5f5 !important;
+  border-color: #cccccc !important;
+  box-shadow: 0 5.5px 0 #919191, 0 0px 0px;
+}
+.toggle-box.disabled::after,
+.toggle-box.disabled::before {
+  color: #bdbdbd !important;
+}
