@@ -1,3 +1,6 @@
+// Import fonts CSS
+import './components/css/fonts.css';
+
 // Export all components
 export { default as Button } from './components/Button.jsx';
 export { default as Checkbox } from './components/Checkbox.jsx';

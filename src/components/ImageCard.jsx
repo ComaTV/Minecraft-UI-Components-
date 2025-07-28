@@ -1,3 +1,4 @@
+import React from 'react';
 import "./css/imageCard.css";
 
 export default function ImageCard({ imageSrc, label, description, onClick }) {

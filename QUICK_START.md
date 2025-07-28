@@ -3,15 +3,15 @@
 ## Installation
 
 ```bash
-npm install minecraft-ui-components
+npm install mc-ui-comatv
 ```
 
 ## Basic Usage
 
 ```jsx
 import React from 'react';
-import { Button, Container } from 'minecraft-ui-components';
-import 'minecraft-ui-components/styles';
+import { Button, Container } from 'mc-ui-comatv';
+import 'mc-ui-comatv/styles';
 
 function App() {
   return (
@@ -133,8 +133,8 @@ import {
   ImageCard,
   LoadingBar,
   MessageBox
-} from 'minecraft-ui-components';
-import 'minecraft-ui-components/styles';
+} from 'mc-ui-comatv';
+import 'mc-ui-comatv/styles';
 
 function MinecraftApp() {
   const [inputValue, setInputValue] = useState('');

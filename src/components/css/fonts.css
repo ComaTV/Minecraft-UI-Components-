@@ -1,0 +1,27 @@
+/* Minecraft Fonts */
+@font-face {
+  font-family: 'MinecraftRegular';
+  src: url('./MinecraftRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MinecraftTen';
+  src: url('./MinecraftTen.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback fonts pentru cazul în care fonturile nu se încarcă */
+.btn {
+  font-family: 'MinecraftRegular', 'Courier New', monospace;
+}
+
+.btn.green,
+.btn.red,
+.btn.purple {
+  font-family: 'MinecraftTen', 'Courier New', monospace;
+} 

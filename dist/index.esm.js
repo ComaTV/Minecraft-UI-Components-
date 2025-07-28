@@ -1,4 +1,4 @@
-import React$1, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function Button({
   label,
@@ -40,18 +40,18 @@ const Checkbox = ({
     if (className) classes.push(className);
     return classes.join(' ');
   };
-  return /*#__PURE__*/React$1.createElement("label", {
+  return /*#__PURE__*/React.createElement("label", {
     className: getWrapperClasses()
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     type: "checkbox",
     className: "checkbox-input",
     checked: checked,
     onChange: handleChange,
     disabled: disabled,
     id: id
-  }), /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "checkbox-visual"
-  }), label && /*#__PURE__*/React$1.createElement("span", {
+  }), label && /*#__PURE__*/React.createElement("span", {
     className: "checkbox-label"
   }, label));
 };
@@ -104,125 +104,125 @@ const Container = ({
     }
   };
   const containerClasses = [getVariantClass(), getSizeClass(), className].filter(Boolean).join(' ');
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: containerClasses,
     style: style
   }, children);
 };
 
 function ContainerExample() {
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "space-y-8"
-  }, /*#__PURE__*/React$1.createElement("h3", {
+  }, /*#__PURE__*/React.createElement("h3", {
     className: "text-gray-300 mb-6 text-sm"
-  }, "Container Examples"), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container Examples"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Default Container"), /*#__PURE__*/React$1.createElement(Container, null, /*#__PURE__*/React$1.createElement("p", {
+  }, "Default Container"), /*#__PURE__*/React.createElement(Container, null, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Acesta este containerul default cu stilul pixel art original."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Acesta este containerul default cu stilul pixel art original."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Deschis (Open)"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Deschis (Open)"), /*#__PURE__*/React.createElement(Container, {
     variant: "open"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container f\u0103r\u0103 fundal, doar cu border. Perfect pentru con\u021Binut care trebuie s\u0103 se integreze cu fundalul."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container f\u0103r\u0103 fundal, doar cu border. Perfect pentru con\u021Binut care trebuie s\u0103 se integreze cu fundalul."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Transparent"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Transparent"), /*#__PURE__*/React.createElement(Container, {
     variant: "transparent"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container negru cu fundal transparent \u0219i efect de blur. Ideal pentru overlay-uri \u0219i modal-uri."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container negru cu fundal transparent \u0219i efect de blur. Ideal pentru overlay-uri \u0219i modal-uri."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Dark"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Dark"), /*#__PURE__*/React.createElement(Container, {
     variant: "dark"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container foarte \xEEntunecat pentru con\u021Binut care necesit\u0103 contrast maxim."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container foarte \xEEntunecat pentru con\u021Binut care necesit\u0103 contrast maxim."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Glass"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Glass"), /*#__PURE__*/React.createElement(Container, {
     variant: "glass"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container cu efect de sticl\u0103 \u0219i blur. Modern \u0219i elegant."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container cu efect de sticl\u0103 \u0219i blur. Modern \u0219i elegant."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Outlined"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Outlined"), /*#__PURE__*/React.createElement(Container, {
     variant: "outlined"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container cu border dashed. Perfect pentru zone de drop sau placeholder-uri."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container cu border dashed. Perfect pentru zone de drop sau placeholder-uri."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Minimal"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Minimal"), /*#__PURE__*/React.createElement(Container, {
     variant: "minimal"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container foarte simplu cu border subtil. Pentru con\u021Binut care nu necesit\u0103 accent."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container foarte simplu cu border subtil. Pentru con\u021Binut care nu necesit\u0103 accent."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container White Mode"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container White Mode"), /*#__PURE__*/React.createElement(Container, {
     variant: "white"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-900 text-sm"
-  }, "Container cu fundal alb \u0219i linie gri la baz\u0103. Perfect pentru design-uri moderne \u0219i curate."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container cu fundal alb \u0219i linie gri la baz\u0103. Perfect pentru design-uri moderne \u0219i curate."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Card"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Card"), /*#__PURE__*/React.createElement(Container, {
     variant: "card"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container cu stil de card, cu umbr\u0103 \u0219i aspect mai proeminent."))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container cu stil de card, cu umbr\u0103 \u0219i aspect mai proeminent."))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Container Form"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Container Form"), /*#__PURE__*/React.createElement(Container, {
     variant: "form"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container special pentru formulare, cu fundal mai \xEEntunecat."))), /*#__PURE__*/React$1.createElement("div", {
+  }, "Container special pentru formulare, cu fundal mai \xEEntunecat."))), /*#__PURE__*/React.createElement("div", {
     className: "space-y-4"
-  }, /*#__PURE__*/React$1.createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block"
-  }, "Diferite Dimensiuni"), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Diferite Dimensiuni"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Small"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Small"), /*#__PURE__*/React.createElement(Container, {
     variant: "open",
     size: "small"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container mic"))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container mic"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Large"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Large"), /*#__PURE__*/React.createElement(Container, {
     variant: "transparent",
     size: "large"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container mare cu mai mult spa\u021Biu"))), /*#__PURE__*/React$1.createElement("div", null, /*#__PURE__*/React$1.createElement("label", {
+  }, "Container mare cu mai mult spa\u021Biu"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block mb-2"
-  }, "Compact"), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Compact"), /*#__PURE__*/React.createElement(Container, {
     variant: "minimal",
     size: "compact"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Container compact")))), /*#__PURE__*/React$1.createElement("div", {
+  }, "Container compact")))), /*#__PURE__*/React.createElement("div", {
     className: "space-y-4"
-  }, /*#__PURE__*/React$1.createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "text-gray-300 text-xs block"
-  }, "Combina\u021Bii de Variante"), /*#__PURE__*/React$1.createElement("div", {
+  }, "Combina\u021Bii de Variante"), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-1 md:grid-cols-2 gap-4"
-  }, /*#__PURE__*/React$1.createElement(Container, {
+  }, /*#__PURE__*/React.createElement(Container, {
     variant: "glass",
     size: "small"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Glass + Small")), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Glass + Small")), /*#__PURE__*/React.createElement(Container, {
     variant: "outlined",
     size: "large"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Outlined + Large")), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Outlined + Large")), /*#__PURE__*/React.createElement(Container, {
     variant: "dark",
     size: "compact"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
-  }, "Dark + Compact")), /*#__PURE__*/React$1.createElement(Container, {
+  }, "Dark + Compact")), /*#__PURE__*/React.createElement(Container, {
     variant: "open",
     size: "default"
-  }, /*#__PURE__*/React$1.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     className: "text-gray-300 text-sm"
   }, "Open + Default")))));
 }
@@ -258,18 +258,18 @@ const Dropdown = ({
     if (disabled) classes.push('disabled');
     return classes.join(' ');
   };
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: getWrapperClasses()
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: `dropdown-select ${isOpen ? 'open' : ''}`,
     onClick: handleToggle
-  }, /*#__PURE__*/React$1.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", {
     className: "dropdown-label"
-  }, selectedOption), /*#__PURE__*/React$1.createElement("span", {
+  }, selectedOption), /*#__PURE__*/React.createElement("span", {
     className: "dropdown-chevron-text"
-  }, "^")), isOpen && !disabled && /*#__PURE__*/React$1.createElement("div", {
+  }, "^")), isOpen && !disabled && /*#__PURE__*/React.createElement("div", {
     className: "dropdown-options"
-  }, options.map((option, index) => /*#__PURE__*/React$1.createElement("div", {
+  }, options.map((option, index) => /*#__PURE__*/React.createElement("div", {
     key: index,
     className: "dropdown-option",
     onClick: () => handleSelect(option)
@@ -1531,9 +1531,9 @@ const Input = ({
     if (className) classes.push(className);
     return classes.join(' ');
   };
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: getWrapperClasses()
-  }, /*#__PURE__*/React$1.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     type: type,
     className: "input-field",
     placeholder: placeholder,
@@ -1781,16 +1781,16 @@ const Slider = ({
   useEffect(() => {
     setCurrentValue(value);
   }, [value]);
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     ref: trackRef,
     className: `progress-slider-track ${disabled ? 'disabled' : ''}`,
     onMouseDown: handleMouseDown
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "progress-slider-fill",
     style: {
       width: `${percentage}%`
     }
-  }), /*#__PURE__*/React$1.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: `progress-slider-thumb ${isDragging ? 'dragging' : ''}`,
     style: {
       left: `calc(${percentage}% - 8px)`
@@ -1811,11 +1811,11 @@ function Toggle({
       return !prev;
     });
   };
-  return /*#__PURE__*/React$1.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: `toggle-box${isOn ? " on" : " off"}${disabled ? " disabled" : ""}`,
     onClick: handleClick,
     "aria-disabled": disabled
-  }, /*#__PURE__*/React$1.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: `toggle-slider${isOn ? " on" : " off"}${disabled ? " disabled" : ""}`,
     style: {
       left: isOn ? "32px" : "0px"

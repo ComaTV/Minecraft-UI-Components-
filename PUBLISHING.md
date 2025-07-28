@@ -49,14 +49,14 @@ npm publish
 ### 6. Verify Publication
 
 Check that your package is published at:
-https://www.npmjs.com/package/minecraft-ui-components
+https://www.npmjs.com/package/mc-ui-comatv
 
 ## 📦 Package Structure
 
 The published package will include:
 
 ```
-minecraft-ui-components/
+mc-ui-comatv/
 ├── dist/
 │   ├── index.js          # CommonJS bundle
 │   ├── index.esm.js      # ESM bundle
@@ -71,13 +71,13 @@ minecraft-ui-components/
 After publishing, users can install and use your components:
 
 ```bash
-npm install minecraft-ui-components
+npm install mc-ui-comatv
 ```
 
 ```jsx
 import React from 'react';
-import { Button, Container } from 'minecraft-ui-components';
-import 'minecraft-ui-components/styles';
+import { Button, Container } from 'mc-ui-comatv';
+import 'mc-ui-comatv/styles';
 
 function App() {
   return (
@@ -126,7 +126,7 @@ npm version major  # 1.1.0 -> 2.0.0
    - Verify that all components export correctly
 
 4. **"CSS not loading"**
-   - Make sure users import `'minecraft-ui-components/styles'`
+   - Make sure users import `'mc-ui-comatv/styles'`
 
 ## 📞 Support
 

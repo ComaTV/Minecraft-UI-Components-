@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import css from 'rollup-plugin-css-only';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { copy } from 'fs-extra';
 
 export default {
   input: 'src/index.js',
@@ -37,6 +38,14 @@ export default {
       output: 'styles.css',
       include: ['src/components/css/*.css'],
     }),
+    // Temporarily disabled font copying due to file lock issues
+    // {
+    //   name: 'copy-fonts',
+    //   writeBundle() {
+    //     return copy('public/MinecraftRegular.ttf', 'dist/MinecraftRegular.ttf', { overwrite: true })
+    //       .then(() => copy('public/MinecraftTen.ttf', 'dist/MinecraftTen.ttf', { overwrite: true }));
+    //   }
+    // }
   ],
   external: ['react', 'react-dom'],
 }; 

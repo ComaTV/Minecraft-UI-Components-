@@ -1,3 +1,4 @@
+import React from 'react';
 import './css/buttons.css';
 
 function Button({ label, variant = 'default', disabled = false, onClick, className = '', style, fontFamily }) {

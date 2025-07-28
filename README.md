@@ -1,4 +1,4 @@
-# Minecraft UI Components
+# MC UI ComaTV
 
 A collection of Minecraft-styled React UI components with pixelated design. Perfect for creating game-like interfaces or retro-styled applications.
 
@@ -13,15 +13,15 @@ A collection of Minecraft-styled React UI components with pixelated design. Perf
 ## 📦 Installation
 
 ```bash
-npm install minecraft-ui-components
+npm install mc-ui-comatv
 ```
 
 ## 🚀 Quick Start
 
 ```jsx
 import React from 'react';
-import { Button, Container } from 'minecraft-ui-components';
-import 'minecraft-ui-components/styles';
+import { Button, Container } from 'mc-ui-comatv';
+import 'mc-ui-comatv/styles';
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
 A customizable button with Minecraft styling.
 
 ```jsx
-import { Button } from 'minecraft-ui-components';
+import { Button } from 'mc-ui-comatv';
 
 // Basic usage
 <Button label="Click me" onClick={() => console.log('clicked')} />
@@ -69,7 +69,7 @@ import { Button } from 'minecraft-ui-components';
 A versatile container component for organizing content.
 
 ```jsx
-import { Container } from 'minecraft-ui-components';
+import { Container } from 'mc-ui-comatv';
 
 // Different sizes
 <Container className="small">Small container</Container>
@@ -84,7 +84,7 @@ import { Container } from 'minecraft-ui-components';
 A Minecraft-styled checkbox component.
 
 ```jsx
-import { Checkbox } from 'minecraft-ui-components';
+import { Checkbox } from 'mc-ui-comatv';
 
 <Checkbox 
   label="Accept terms" 
@@ -110,7 +110,7 @@ import { Checkbox } from 'minecraft-ui-components';
 A text input with Minecraft styling.
 
 ```jsx
-import { Input } from 'minecraft-ui-components';
+import { Input } from 'mc-ui-comatv';
 
 <Input 
   placeholder="Enter text..."
@@ -142,7 +142,7 @@ import { Input } from 'minecraft-ui-components';
 A toggle switch component.
 
 ```jsx
-import { Toggle } from 'minecraft-ui-components';
+import { Toggle } from 'mc-ui-comatv';
 
 <Toggle checked={isOn} onChange={(checked) => setIsOn(checked)} />
 ```
@@ -151,7 +151,7 @@ import { Toggle } from 'minecraft-ui-components';
 A slider component for numeric inputs.
 
 ```jsx
-import { Slider } from 'minecraft-ui-components';
+import { Slider } from 'mc-ui-comatv';
 
 <Slider 
   value={50} 
@@ -163,7 +163,7 @@ import { Slider } from 'minecraft-ui-components';
 A dropdown/select component.
 
 ```jsx
-import { Dropdown } from 'minecraft-ui-components';
+import { Dropdown } from 'mc-ui-comatv';
 
 <Dropdown 
   header="Select option"
@@ -203,7 +203,7 @@ import { Dropdown } from 'minecraft-ui-components';
 A card component for displaying images with descriptions.
 
 ```jsx
-import { ImageCard } from 'minecraft-ui-components';
+import { ImageCard } from 'mc-ui-comatv';
 
 <ImageCard
   imageSrc="/path/to/image.png"
@@ -223,7 +223,7 @@ import { ImageCard } from 'minecraft-ui-components';
 A progress bar component.
 
 ```jsx
-import { LoadingBar } from 'minecraft-ui-components';
+import { LoadingBar } from 'mc-ui-comatv';
 
 <LoadingBar progress={75} variant="blue" />
 ```
@@ -236,7 +236,7 @@ import { LoadingBar } from 'minecraft-ui-components';
 A message component for chat-like interfaces.
 
 ```jsx
-import { MessageBox } from 'minecraft-ui-components';
+import { MessageBox } from 'mc-ui-comatv';
 
 <MessageBox 
   message="Hello world!"
@@ -260,8 +260,7 @@ import { MessageBox } from 'minecraft-ui-components';
 The components come with built-in Minecraft-styled CSS. To use the styles, import them:
 
 ```jsx
-import 'minecraft-ui-components/styles';
-```
+import 'mc-ui-comatv/styles';
 
 You can also customize the components using CSS classes or inline styles:
 
