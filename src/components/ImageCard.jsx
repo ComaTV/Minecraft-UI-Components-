@@ -1,7 +1,7 @@
 import React from 'react';
 import "./css/imageCard.css";
 
-export default function ImageCard({ imageSrc, label, description, onClick }) {
+export default function ImageCard({ imageSrc, label, description, iconImages = [], onClick }) {
   const Wrapper = onClick ? 'button' : 'div';
   
   const isLongLabel = label && label.length > 20;
@@ -28,6 +28,18 @@ export default function ImageCard({ imageSrc, label, description, onClick }) {
         <div className={`image-card-description ${isLongDescription ? 'image-card-description-long' : ''}`}>
           {description}
         </div>
+        {iconImages.length > 0 && (
+          <div className="image-card-icons">
+            {iconImages.map((iconSrc, index) => (
+              <img 
+                key={index}
+                src={iconSrc} 
+                alt={`Icon ${index + 1}`} 
+                className="image-card-icon"
+              />
+            ))}
+          </div>
+        )}
       </div>
     </Wrapper>
   );

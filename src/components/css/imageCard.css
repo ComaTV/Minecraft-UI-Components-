@@ -77,4 +77,20 @@
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
+}
+
+.image-card-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.image-card-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 2px;
+  padding: 2px;
 } 

@@ -11,6 +11,7 @@ export { default as ImageCard } from './components/ImageCard.jsx';
 export { default as Input } from './components/Input.jsx';
 export { default as LoadingBar } from './components/LoadingBar.jsx';
 export { default as MessageBox } from './components/MessageBox.jsx';
+export { default as Scrollbar } from './components/Scrollbar.jsx';
 export { default as Slider } from './components/Slider.jsx';
 export { default as Toggle } from './components/Toggle.jsx';
 

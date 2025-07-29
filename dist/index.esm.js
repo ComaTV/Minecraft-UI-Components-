@@ -3,21 +3,74 @@ import React, { useState, useRef, useEffect } from 'react';
 function Button({
   label,
   variant = 'default',
+  width = 'auto',
+  height = 'auto',
+  font = 'MinecraftRegular',
   disabled = false,
+  loading = false,
+  icon = null,
+  iconPosition = 'left',
   onClick,
   className = '',
   style,
-  fontFamily
+  fullWidth = false,
+  type = 'button'
 }) {
-  return /*#__PURE__*/React.createElement("button", {
-    className: `btn ${variant} ${disabled ? 'disabled' : ''} ${className}`,
-    disabled: disabled,
-    onClick: onClick,
-    style: {
-      ...style,
-      fontFamily
+  const getButtonClasses = () => {
+    const classes = ['btn', variant];
+    if (disabled) classes.push('disabled');
+    if (loading) classes.push('loading');
+    if (fullWidth) classes.push('full-width');
+    if (font === 'MinecraftTen') classes.push('font-ten');
+    if (className) classes.push(className);
+    return classes.join(' ');
+  };
+  const getButtonStyle = () => {
+    const baseStyle = {
+      fontFamily: font
+    };
+    if (width !== 'auto') {
+      baseStyle.width = typeof width === 'number' ? `${width}px` : width;
     }
-  }, label);
+    if (height !== 'auto') {
+      baseStyle.height = typeof height === 'number' ? `${height}px` : height;
+      baseStyle.minHeight = typeof height === 'number' ? `${height}px` : height;
+    }
+    return {
+      ...baseStyle,
+      ...style
+    };
+  };
+  const renderIcon = () => {
+    if (!icon) return null;
+    const iconElement = typeof icon === 'string' ? /*#__PURE__*/React.createElement("img", {
+      src: icon,
+      alt: "",
+      className: "btn-icon"
+    }) : icon;
+    return /*#__PURE__*/React.createElement("span", {
+      className: `btn-icon-wrapper ${iconPosition}`
+    }, iconElement);
+  };
+  const renderContent = () => {
+    if (loading) {
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+        className: "btn-loading-spinner"
+      }), /*#__PURE__*/React.createElement("span", {
+        className: "btn-loading-text"
+      }, label));
+    }
+    return /*#__PURE__*/React.createElement(React.Fragment, null, iconPosition === 'left' && renderIcon(), /*#__PURE__*/React.createElement("span", {
+      className: "btn-text"
+    }, label), iconPosition === 'right' && renderIcon());
+  };
+  return /*#__PURE__*/React.createElement("button", {
+    className: getButtonClasses(),
+    disabled: disabled || loading,
+    onClick: onClick,
+    style: getButtonStyle(),
+    type: type
+  }, renderContent());
 }
 
 const Checkbox = ({
@@ -290,6 +343,7 @@ function ImageCard({
   imageSrc,
   label,
   description,
+  iconImages = [],
   onClick
 }) {
   const Wrapper = onClick ? 'button' : 'div';
@@ -318,7 +372,14 @@ function ImageCard({
     className: `image-card-label ${isLongLabel ? 'image-card-label-long' : ''}`
   }, label), /*#__PURE__*/React.createElement("div", {
     className: `image-card-description ${isLongDescription ? 'image-card-description-long' : ''}`
-  }, description)));
+  }, description), iconImages.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "image-card-icons"
+  }, iconImages.map((iconSrc, index) => /*#__PURE__*/React.createElement("img", {
+    key: index,
+    src: iconSrc,
+    alt: `Icon ${index + 1}`,
+    className: "image-card-icon"
+  })))));
 }
 
 function getDefaultExportFromCjs (x) {
@@ -1730,6 +1791,199 @@ function MessageBox({
   })));
 }
 
+function Scrollbar({
+  children,
+  height = '300px',
+  width = '100%',
+  className = '',
+  showScrollbar = true,
+  onScroll = null,
+  variant = 'vertical',
+  // 'vertical' or 'horizontal'
+  grid = false,
+  // Enable grid layout
+  gridCols = 3,
+  // Number of columns for grid
+  gridGap = '16px' // Gap between grid items
+}) {
+  const [scrollTop, setScrollTop] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollHeight, setScrollHeight] = useState(0);
+  const [scrollWidth, setScrollWidth] = useState(0);
+  const [clientHeight, setClientHeight] = useState(0);
+  const [clientWidth, setClientWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartY, setDragStartY] = useState(0);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragStartScrollTop, setDragStartScrollTop] = useState(0);
+  const [dragStartScrollLeft, setDragStartScrollLeft] = useState(0);
+  const containerRef = useRef(null);
+  const scrollbarRef = useRef(null);
+  const thumbRef = useRef(null);
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const updateScrollInfo = () => {
+      setScrollTop(container.scrollTop);
+      setScrollLeft(container.scrollLeft);
+      setScrollHeight(container.scrollHeight);
+      setScrollWidth(container.scrollWidth);
+      setClientHeight(container.clientHeight);
+      setClientWidth(container.clientWidth);
+    };
+    updateScrollInfo();
+    container.addEventListener('scroll', updateScrollInfo);
+    window.addEventListener('resize', updateScrollInfo);
+    return () => {
+      container.removeEventListener('scroll', updateScrollInfo);
+      window.removeEventListener('resize', updateScrollInfo);
+    };
+  }, []);
+  const handleScroll = e => {
+    if (onScroll) {
+      onScroll(e);
+    }
+  };
+  const handleMouseDown = e => {
+    e.preventDefault();
+    setIsDragging(true);
+    if (variant === 'vertical') {
+      setDragStartY(e.clientY);
+      setDragStartScrollTop(scrollTop);
+    } else {
+      setDragStartX(e.clientX);
+      setDragStartScrollLeft(scrollLeft);
+    }
+    document.body.style.userSelect = 'none';
+  };
+  const handleMouseMove = e => {
+    if (!isDragging) return;
+    if (variant === 'vertical') {
+      const deltaY = e.clientY - dragStartY;
+      const scrollRatio = deltaY / (clientHeight - thumbHeight);
+      const newScrollTop = dragStartScrollTop + scrollRatio * (scrollHeight - clientHeight);
+      if (containerRef.current) {
+        containerRef.current.scrollTop = Math.max(0, Math.min(newScrollTop, scrollHeight - clientHeight));
+      }
+    } else {
+      const deltaX = e.clientX - dragStartX;
+      const scrollRatio = deltaX / (clientWidth - thumbWidth);
+      const newScrollLeft = dragStartScrollLeft + scrollRatio * (scrollWidth - clientWidth);
+      if (containerRef.current) {
+        containerRef.current.scrollLeft = Math.max(0, Math.min(newScrollLeft, scrollWidth - clientWidth));
+      }
+    }
+  };
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    document.body.style.userSelect = '';
+  };
+  const handleThumbClick = e => {
+    e.stopPropagation();
+  };
+  const handleTrackClick = e => {
+    const track = scrollbarRef.current;
+    if (!track) return;
+    const rect = track.getBoundingClientRect();
+    if (variant === 'vertical') {
+      const clickY = e.clientY - rect.top;
+      const trackHeight = rect.height;
+      const scrollRatio = clickY / trackHeight;
+      const newScrollTop = scrollRatio * (scrollHeight - clientHeight);
+      if (containerRef.current) {
+        containerRef.current.scrollTop = Math.max(0, Math.min(newScrollTop, scrollHeight - clientHeight));
+      }
+    } else {
+      const clickX = e.clientX - rect.left;
+      const trackWidth = rect.width;
+      const scrollRatio = clickX / trackWidth;
+      const newScrollLeft = scrollRatio * (scrollWidth - clientWidth);
+      if (containerRef.current) {
+        containerRef.current.scrollLeft = Math.max(0, Math.min(newScrollLeft, scrollWidth - clientWidth));
+      }
+    }
+  };
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [isDragging, dragStartY, dragStartX, dragStartScrollTop, dragStartScrollLeft, scrollHeight, scrollWidth, clientHeight, clientWidth]);
+
+  // Vertical scrollbar calculations
+  const verticalScrollRatio = scrollHeight > clientHeight ? scrollTop / (scrollHeight - clientHeight) : 0;
+  const thumbHeight = Math.max(40, Math.min(80, clientHeight * 0.3)); // Fixed size between 40-80px
+  const thumbTop = verticalScrollRatio * (clientHeight - thumbHeight);
+
+  // Horizontal scrollbar calculations
+  const horizontalScrollRatio = scrollWidth > clientWidth ? scrollLeft / (scrollWidth - clientWidth) : 0;
+  const thumbWidth = Math.max(40, Math.min(80, clientWidth * 0.3)); // Fixed size between 40-80px
+  const thumbLeft = horizontalScrollRatio * (clientWidth - thumbWidth);
+  const showVerticalScrollbar = variant === 'vertical' && showScrollbar && scrollHeight > clientHeight;
+  const showHorizontalScrollbar = variant === 'horizontal' && showScrollbar && scrollWidth > clientWidth;
+  const getGridStyle = () => {
+    if (!grid || variant === 'horizontal') return {};
+    return {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: gridGap,
+      width: '100%'
+    };
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: `custom-scrollbar-container ${className} ${variant}`,
+    style: {
+      height,
+      width
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: containerRef,
+    className: `custom-scrollbar-content ${variant}`,
+    "data-grid-cols": grid ? gridCols : undefined,
+    onScroll: handleScroll
+  }, /*#__PURE__*/React.createElement("div", {
+    style: getGridStyle()
+  }, React.Children.map(children, (child, index) => {
+    if (grid && variant === 'vertical' && /*#__PURE__*/React.isValidElement(child)) {
+      return /*#__PURE__*/React.cloneElement(child, {
+        ...child.props,
+        className: `grid-item ${child.props.className || ''}`.trim()
+      });
+    }
+    return child;
+  }))), showVerticalScrollbar && /*#__PURE__*/React.createElement("div", {
+    ref: scrollbarRef,
+    className: "custom-scrollbar-track vertical",
+    onClick: handleTrackClick
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: thumbRef,
+    className: "custom-scrollbar-thumb",
+    style: {
+      height: `${thumbHeight}px`,
+      top: `${thumbTop}px`
+    },
+    onMouseDown: handleMouseDown,
+    onClick: handleThumbClick
+  })), showHorizontalScrollbar && /*#__PURE__*/React.createElement("div", {
+    ref: scrollbarRef,
+    className: "custom-scrollbar-track horizontal",
+    onClick: handleTrackClick
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: thumbRef,
+    className: "custom-scrollbar-thumb",
+    style: {
+      width: `${thumbWidth}px`,
+      left: `${thumbLeft}px`
+    },
+    onMouseDown: handleMouseDown,
+    onClick: handleThumbClick
+  })));
+}
+
 const Slider = ({
   value = 100,
   max = 100,
@@ -1823,5 +2077,5 @@ function Toggle({
   }));
 }
 
-export { Button, Checkbox, Container, ContainerExample, Dropdown, ImageCard, Input, LoadingBar, MessageBox, Slider, Toggle, Button as default };
+export { Button, Checkbox, Container, ContainerExample, Dropdown, ImageCard, Input, LoadingBar, MessageBox, Scrollbar, Slider, Toggle, Button as default };
 //# sourceMappingURL=index.esm.js.map

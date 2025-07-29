@@ -9,6 +9,9 @@ A collection of Minecraft-styled React UI components with pixelated design. Perf
 - **TypeScript support** - Full type definitions included
 - **Lightweight** - Minimal dependencies
 - **Accessible** - Built with accessibility in mind
+- **Custom scrollbars** - Modern dark-themed scrollbars with grid support
+- **Adaptable buttons** - Custom dimensions, fonts, and icon support
+- **Grid layouts** - Flexible grid system with automatic wrapping
 
 ## 📦 Installation
 
@@ -20,7 +23,7 @@ npm install mc-ui-comatv
 
 ```jsx
 import React from 'react';
-import { Button, Container } from 'mc-ui-comatv';
+import { Button, Container, Scrollbar } from 'mc-ui-comatv';
 import 'mc-ui-comatv/styles';
 
 function App() {
@@ -31,6 +34,9 @@ function App() {
         label="Click me!" 
         onClick={() => alert('Hello!')}
       />
+      <Scrollbar height="300px" grid={true} gridCols={3}>
+        {/* Your content here */}
+      </Scrollbar>
     </Container>
   );
 }
@@ -39,13 +45,37 @@ function App() {
 ## 🧩 Components
 
 ### Button
-A customizable button with Minecraft styling.
+A highly customizable button with Minecraft styling and advanced features.
 
 ```jsx
 import { Button } from 'mc-ui-comatv';
 
 // Basic usage
 <Button label="Click me" onClick={() => console.log('clicked')} />
+
+// Custom dimensions and fonts
+<Button 
+  label="Custom Button" 
+  width={150} 
+  height={45} 
+  font="MinecraftTen"
+  onClick={() => console.log('clicked')} 
+/>
+
+// With icons
+<Button 
+  label="Download" 
+  icon="/path/to/icon.png"
+  iconPosition="left"
+  onClick={() => console.log('download')} 
+/>
+
+// Loading state
+<Button 
+  label="Saving..." 
+  loading={true}
+  onClick={() => console.log('saving')} 
+/>
 
 // With variants
 <Button label="Green Button" variant="green" />
@@ -59,11 +89,53 @@ import { Button } from 'mc-ui-comatv';
 **Props:**
 - `label` (string) - Button text
 - `variant` (string) - 'default' | 'green' | 'red' | 'purple'
+- `width` (number|string) - Custom width
+- `height` (number|string) - Custom height
+- `font` (string) - 'MinecraftRegular' | 'MinecraftTen'
+- `icon` (string|ReactNode) - Icon (path or component)
+- `iconPosition` (string) - 'left' | 'right'
+- `loading` (boolean) - Loading state
 - `disabled` (boolean) - Disabled state
+- `fullWidth` (boolean) - Full width button
 - `onClick` (function) - Click handler
 - `className` (string) - Additional CSS classes
 - `style` (object) - Inline styles
-- `fontFamily` (string) - Custom font family
+
+### Scrollbar
+A custom scrollbar component with modern dark theme and grid support.
+
+```jsx
+import { Scrollbar } from 'mc-ui-comatv';
+
+// Basic vertical scrollbar
+<Scrollbar height="400px">
+  {/* Your content here */}
+</Scrollbar>
+
+// Horizontal scrollbar
+<Scrollbar height="200px" variant="horizontal">
+  {/* Wide content */}
+</Scrollbar>
+
+// Grid layout with automatic wrapping
+<Scrollbar height="400px" grid={true} gridCols={3} gridGap="16px">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div> {/* Automatically wraps to next row */}
+</Scrollbar>
+```
+
+**Props:**
+- `height` (string) - Container height
+- `width` (string) - Container width
+- `variant` (string) - 'vertical' | 'horizontal'
+- `grid` (boolean) - Enable grid layout (vertical only)
+- `gridCols` (number) - Number of columns (2-6)
+- `gridGap` (string) - Gap between grid items
+- `showScrollbar` (boolean) - Show/hide scrollbar
+- `onScroll` (function) - Scroll event handler
+- `className` (string) - Additional CSS classes
 
 ### Container
 A versatile container component for organizing content.
@@ -200,7 +272,7 @@ import { Dropdown } from 'mc-ui-comatv';
 - `disabled` (boolean) - Disabled state
 
 ### ImageCard
-A card component for displaying images with descriptions.
+A card component for displaying images with descriptions and icon arrays.
 
 ```jsx
 import { ImageCard } from 'mc-ui-comatv';
@@ -209,6 +281,11 @@ import { ImageCard } from 'mc-ui-comatv';
   imageSrc="/path/to/image.png"
   label="Card Title"
   description="This is a description of the card"
+  iconImages={[
+    "/path/to/icon1.png",
+    "/path/to/icon2.png",
+    "/path/to/icon3.png"
+  ]}
   onClick={() => console.log('Card clicked')}
 />
 ```
@@ -217,6 +294,7 @@ import { ImageCard } from 'mc-ui-comatv';
 - `imageSrc` (string) - Image source
 - `label` (string) - Card title
 - `description` (string) - Card description
+- `iconImages` (array) - Array of icon image paths
 - `onClick` (function) - Click handler
 
 ### LoadingBar
@@ -261,6 +339,7 @@ The components come with built-in Minecraft-styled CSS. To use the styles, impor
 
 ```jsx
 import 'mc-ui-comatv/styles';
+```
 
 You can also customize the components using CSS classes or inline styles:
 
@@ -286,6 +365,10 @@ This project is licensed under the MIT License.
 
 ## 🎯 Roadmap
 
+- [x] Add custom scrollbar component
+- [x] Add adaptable button dimensions
+- [x] Add grid layout support
+- [x] Add icon support for buttons and cards
 - [ ] Add more component variants
 - [ ] Add animation support
 - [ ] Add theme customization

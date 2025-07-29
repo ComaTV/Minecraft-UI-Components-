@@ -1,0 +1,230 @@
+.custom-scrollbar-container {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #333;
+}
+
+.custom-scrollbar-container.vertical {
+  background: transparent;
+}
+
+.custom-scrollbar-container.horizontal {
+  background: transparent;
+}
+
+.custom-scrollbar-content {
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  
+  /* Hide default scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.custom-scrollbar-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.custom-scrollbar-content.vertical {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+}
+
+.custom-scrollbar-content.horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 16px;
+}
+
+/* Vertical scrollbar track */
+.custom-scrollbar-track.vertical {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  width: 6px;
+  background: linear-gradient(180deg, 
+    rgba(80, 80, 80, 0.8) 0%, 
+    rgba(60, 60, 60, 0.9) 20%, 
+    rgba(40, 40, 40, 1) 50%, 
+    rgba(60, 60, 60, 0.9) 80%, 
+    rgba(80, 80, 80, 0.8) 100%
+  );
+  cursor: pointer;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.5);
+  
+  /* Vertical motion blur effect */
+  backdrop-filter: blur(1px);
+}
+
+/* Horizontal scrollbar track */
+.custom-scrollbar-track.horizontal {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    rgba(80, 80, 80, 0.8) 0%, 
+    rgba(60, 60, 60, 0.9) 20%, 
+    rgba(40, 40, 40, 1) 50%, 
+    rgba(60, 60, 60, 0.9) 80%, 
+    rgba(80, 80, 80, 0.8) 100%
+  );
+  cursor: pointer;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.5);
+  
+  /* Horizontal motion blur effect */
+  backdrop-filter: blur(1px);
+}
+
+.custom-scrollbar-track.vertical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.custom-scrollbar-track.horizontal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.custom-scrollbar-thumb {
+  position: absolute;
+  background: linear-gradient(180deg,
+    rgba(200, 200, 200, 0.9) 0%,
+    rgba(180, 180, 180, 0.95) 30%,
+    rgba(160, 160, 160, 1) 50%,
+    rgba(180, 180, 180, 0.95) 70%,
+    rgba(200, 200, 200, 0.9) 100%
+  );
+  cursor: grab;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  
+  /* 3D embossed effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Vertical thumb positioning - larger than track */
+.custom-scrollbar-track.vertical .custom-scrollbar-thumb {
+  left: -2px;
+  right: -2px;
+  min-height: 40px;
+  width: 10px;
+}
+
+/* Horizontal thumb positioning - larger than track */
+.custom-scrollbar-track.horizontal .custom-scrollbar-thumb {
+  top: -2px;
+  bottom: -2px;
+  min-width: 40px;
+  height: 10px;
+}
+
+.custom-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(220, 220, 220, 0.95) 0%,
+    rgba(200, 200, 200, 1) 30%,
+    rgba(180, 180, 180, 1) 50%,
+    rgba(200, 200, 200, 1) 70%,
+    rgba(220, 220, 220, 0.95) 100%
+  );
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.custom-scrollbar-thumb:active {
+  cursor: grabbing;
+  background: linear-gradient(180deg,
+    rgba(180, 180, 180, 1) 0%,
+    rgba(160, 160, 160, 1) 30%,
+    rgba(140, 140, 140, 1) 50%,
+    rgba(160, 160, 160, 1) 70%,
+    rgba(180, 180, 180, 1) 100%
+  );
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transform: translateY(1px);
+}
+
+/* Smooth scrolling for content */
+.custom-scrollbar-content {
+  scroll-behavior: auto;
+}
+
+/* Grid layout styles */
+.custom-scrollbar-content .grid-item {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive grid items for vertical scrollbar */
+.custom-scrollbar-content.vertical[data-grid-cols="2"] .grid-item {
+  flex-basis: calc(50% - 8px);
+  min-width: 200px;
+}
+
+.custom-scrollbar-content.vertical[data-grid-cols="3"] .grid-item {
+  flex-basis: calc(33.333% - 11px);
+  min-width: 180px;
+}
+
+.custom-scrollbar-content.vertical[data-grid-cols="4"] .grid-item {
+  flex-basis: calc(25% - 12px);
+  min-width: 150px;
+}
+
+.custom-scrollbar-content.vertical[data-grid-cols="5"] .grid-item {
+  flex-basis: calc(20% - 13px);
+  min-width: 120px;
+}
+
+.custom-scrollbar-content.vertical[data-grid-cols="6"] .grid-item {
+  flex-basis: calc(16.666% - 14px);
+  min-width: 100px;
+}
+
+/* Focus styles for accessibility */
+.custom-scrollbar-track:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.custom-scrollbar-thumb:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 1px;
+} 
