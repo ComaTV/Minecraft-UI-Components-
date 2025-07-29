@@ -36,6 +36,19 @@ export default function Home() {
         <h2 className="text-gray-300 mb-4">Demo Container</h2>
         <p className="text-gray-300 text-base">This is an example of a reusable container with pixelated style.</p>
       </Container>
+
+      {/* Example 1.1: White Container with Black Text */}
+      <Container className="large mt-4" variant="white">
+        <h2 className="text-gray-300 mb-4">White Container Demo</h2>
+        <p className="text-gray-300 text-base">This is a white container with automatically converted black text for better visibility.</p>
+        <div className="mt-4">
+          <span className="text-gray-300 text-sm">Even this gray text becomes black!</span>
+        </div>
+        <div className="mt-4 flex gap-2">
+          <Button label="Test Button" variant="green" />
+          <Button label="Another Button" variant="red" />
+        </div>
+      </Container>
       
       {/* Example 2: Container for buttons - with Tailwind */}
       <Container className="small">
@@ -479,23 +492,23 @@ export default function Home() {
         <Scrollbar height="200px" width="100%" variant="horizontal">
           <div className="flex gap-4" style={{ width: 'max-content', minWidth: '100%' }}>
             <div className="bg-gray-700 p-4 rounded min-w-[300px]">
-              <h4 className="text-white font-bold mb-2">Card 1</h4>
+              <h4 className="text-white">Card 1</h4>
               <p className="text-gray-300 text-sm">This is a wide card that demonstrates horizontal scrolling.</p>
             </div>
             <div className="bg-gray-700 p-4 rounded min-w-[300px]">
-              <h4 className="text-white font-bold mb-2">Card 2</h4>
+              <h4 className="text-white">Card 2</h4>
               <p className="text-gray-300 text-sm">Another card with some content to scroll through.</p>
             </div>
             <div className="bg-gray-700 p-4 rounded min-w-[300px]">
-              <h4 className="text-white font-bold mb-2">Card 3</h4>
+              <h4 className="text-white">Card 3</h4>
               <p className="text-gray-300 text-sm">Third card showing the horizontal scrollbar in action.</p>
             </div>
             <div className="bg-gray-700 p-4 rounded min-w-[300px]">
-              <h4 className="text-white font-bold mb-2">Card 4</h4>
+              <h4 className="text-white">Card 4</h4>
               <p className="text-gray-300 text-sm">Fourth card to ensure scrolling is needed.</p>
             </div>
             <div className="bg-gray-700 p-4 rounded min-w-[300px]">
-              <h4 className="text-white font-bold mb-2">Card 5</h4>
+              <h4 className="text-white">Card 5</h4>
               <p className="text-gray-300 text-sm">Fifth card completing the horizontal scroll demonstration.</p>
             </div>
           </div>
@@ -507,14 +520,14 @@ export default function Home() {
         <h3 className="text-gray-300 mb-3 text-sm">Grid Layout with Scrollbar</h3>
         <Scrollbar height="400px" width="100%" variant="vertical" grid={true} gridCols={3}>
           {Array.from({ length: 12 }, (_, i) => (
-            <div key={i} className="bg-gray-700 p-4 rounded">
-              <h4 className="text-white font-bold mb-2">Grid Item {i + 1}</h4>
+            <Container variant="white">
+              <h4 className="text-black">Grid Item {i + 1}</h4>
               <p className="text-gray-300 text-sm">This is a grid item in a scrollable grid layout.</p>
               <div className="mt-2 flex gap-2">
                 <Button label="Action" size="small" width={60} height={24} font="MinecraftRegular" />
                 <Button label="More" variant="green" size="small" width={60} height={24} font="MinecraftRegular" />
               </div>
-            </div>
+            </Container>
           ))}
         </Scrollbar>
       </Container>

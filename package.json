@@ -1,8 +1,8 @@
 {
   "name": "mc-ui-comatv",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "type": "module",
-  "description": "A collection of Minecraft-styled React UI components with pixelated design, including custom scrollbars, adaptable buttons, and grid layouts",
+  "description": "A collection of Minecraft-styled React UI components with pixelated design, including custom scrollbars, adaptable buttons, grid layouts, and white containers with automatic text color adjustment",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,8 @@
     "scrollbar",
     "grid-layout",
     "custom-buttons",
-    "dark-theme"
+    "dark-theme",
+    "white-containers"
   ],
   "author": "Your Name",
   "license": "MIT",

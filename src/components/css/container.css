@@ -256,7 +256,7 @@
     inset 2px 2px 0px #ffffff,
     inset -2px -2px 0px #666666;
   font-family: 'MinecraftRegular', monospace;
-  color: #CCCCCC;
+  color: #000000;
   min-height: 60px;
   display: flex;
   flex-direction: column;
@@ -285,6 +285,36 @@
   height: 8px;
   background-color: #d2d3d7;
   z-index: -1;
+}
+
+/* Make all text elements inside white containers black */
+.pixel-container-white h1,
+.pixel-container-white h2,
+.pixel-container-white h3,
+.pixel-container-white h4,
+.pixel-container-white h5,
+.pixel-container-white h6,
+.pixel-container-white p,
+.pixel-container-white span,
+.pixel-container-white div,
+.pixel-container-white label {
+  color: #000000 !important;
+}
+
+/* Override Tailwind text colors for white containers */
+.pixel-container-white .text-gray-300,
+.pixel-container-white .text-gray-400,
+.pixel-container-white .text-gray-500,
+.pixel-container-white .text-gray-600,
+.pixel-container-white .text-gray-700,
+.pixel-container-white .text-white {
+  color: #000000 !important;
+}
+
+/* Keep specific colors for buttons and other interactive elements */
+.pixel-container-white .btn,
+.pixel-container-white button {
+  color: inherit;
 }
 
 @media (max-width: 768px) {

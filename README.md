@@ -12,6 +12,7 @@ A collection of Minecraft-styled React UI components with pixelated design. Perf
 - **Custom scrollbars** - Modern dark-themed scrollbars with grid support
 - **Adaptable buttons** - Custom dimensions, fonts, and icon support
 - **Grid layouts** - Flexible grid system with automatic wrapping
+- **White containers** - Automatic text color adjustment for light backgrounds
 
 ## 📦 Installation
 
@@ -138,7 +139,7 @@ import { Scrollbar } from 'mc-ui-comatv';
 - `className` (string) - Additional CSS classes
 
 ### Container
-A versatile container component for organizing content.
+A versatile container component for organizing content with multiple variants and automatic text color adjustment.
 
 ```jsx
 import { Container } from 'mc-ui-comatv';
@@ -150,7 +151,33 @@ import { Container } from 'mc-ui-comatv';
 <Container className="card">Card-style container</Container>
 <Container className="sidebar">Sidebar container</Container>
 <Container className="form-container">Form container</Container>
+
+// White container with automatic black text
+<Container className="large" variant="white">
+  <h2 className="text-gray-300">White Container</h2>
+  <p className="text-gray-300">Text automatically becomes black for visibility</p>
+  <Button label="Button keeps its color" variant="green" />
+</Container>
+
+// Other variants
+<Container variant="transparent">Transparent container</Container>
+<Container variant="dark">Dark container</Container>
+<Container variant="glass">Glass effect container</Container>
+<Container variant="outlined">Outlined container</Container>
+<Container variant="minimal">Minimal container</Container>
 ```
+
+**Props:**
+- `variant` (string) - 'default' | 'white' | 'transparent' | 'dark' | 'glass' | 'outlined' | 'minimal' | 'open'
+- `className` (string) - Additional CSS classes
+- `size` (string) - 'small' | 'large' | 'compact' | 'default'
+- `style` (object) - Inline styles
+
+**White Container Features:**
+- Automatically converts all text to black for visibility
+- Overrides Tailwind text color classes
+- Preserves button and interactive element colors
+- Perfect for light backgrounds
 
 ### Checkbox
 A Minecraft-styled checkbox component.
@@ -369,6 +396,7 @@ This project is licensed under the MIT License.
 - [x] Add adaptable button dimensions
 - [x] Add grid layout support
 - [x] Add icon support for buttons and cards
+- [x] Add white containers with automatic text color adjustment
 - [ ] Add more component variants
 - [ ] Add animation support
 - [ ] Add theme customization
