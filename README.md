@@ -138,19 +138,85 @@ import { Scrollbar } from 'mc-ui-comatv';
 - `className` (string) - Additional CSS classes
 
 ### Container
-A versatile container component for organizing content.
+A versatile container component for organizing content with multiple variants and sizes.
 
 ```jsx
 import { Container } from 'mc-ui-comatv';
+
+// Basic usage
+<Container>
+  <h2>Basic Container</h2>
+  <p>Your content here</p>
+</Container>
 
 // Different sizes
 <Container className="small">Small container</Container>
 <Container className="large">Large container</Container>
 <Container className="compact">Compact container</Container>
+
+// Different variants
 <Container className="card">Card-style container</Container>
 <Container className="sidebar">Sidebar container</Container>
 <Container className="form-container">Form container</Container>
+<Container className="modal">Modal container</Container>
+
+// Using variant prop
+<Container variant="open">Open variant container</Container>
+<Container variant="transparent">Transparent container</Container>
+<Container variant="dark">Dark container</Container>
+<Container variant="glass">Glass effect container</Container>
+<Container variant="outlined">Outlined container</Container>
+<Container variant="minimal">Minimal container</Container>
+<Container variant="white">White container</Container>
+
+// Using size prop
+<Container size="small">Small size container</Container>
+<Container size="large">Large size container</Container>
+<Container size="compact">Compact size container</Container>
+
+// With custom styling
+<Container 
+  className="custom-class"
+  style={{ backgroundColor: '#2a2a2a' }}
+>
+  Custom styled container
+</Container>
 ```
+
+**Props:**
+- `children` (ReactNode) - Content to be rendered inside the container
+- `className` (string) - Additional CSS classes
+- `style` (object) - Inline styles
+- `variant` (string) - Container variant: 'default' | 'open' | 'transparent' | 'dark' | 'glass' | 'outlined' | 'minimal' | 'white' | 'card' | 'form' | 'sidebar' | 'modal'
+- `size` (string) - Container size: 'default' | 'small' | 'large' | 'compact'
+
+**Variants:**
+- `default` - Standard container with pixelated border
+- `open` - Container with open/expanded styling
+- `transparent` - Transparent background container
+- `dark` - Dark themed container
+- `glass` - Glass morphism effect container
+- `outlined` - Container with outline only
+- `minimal` - Minimal styling container
+- `white` - White themed container
+- `card` - Card-style container (same as className="card")
+- `form` - Form container (same as className="form-container")
+- `sidebar` - Sidebar container (same as className="sidebar")
+- `modal` - Modal container (same as className="modal")
+
+**Sizes:**
+- `default` - Standard size
+- `small` - Smaller padding and spacing
+- `large` - Larger padding and spacing
+- `compact` - Minimal padding for tight layouts
+
+**CSS Classes (alternative to variant prop):**
+- `small` - Small size container
+- `large` - Large size container
+- `compact` - Compact size container
+- `card` - Card-style container
+- `form-container` - Form container
+- `sidebar` - Sidebar container
 
 ### Checkbox
 A Minecraft-styled checkbox component.
